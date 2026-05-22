@@ -998,3 +998,103 @@ h1, h2, h3, h4 {
   .footer-inner { flex-direction: column; gap: var(--s-4); text-align: center; }
   .trusted-by { flex-direction: column; align-items: center; gap: var(--s-4); }
 }
+
+/* ============================================================
+   TECH CATEGORIES + BRAND CARDS  (our-tech.html)
+   ============================================================ */
+.tech-category {
+  padding: var(--s-10) 0;
+  border-top: 1px solid var(--line-1);
+}
+
+.tech-category:first-of-type { border-top: none; padding-top: var(--s-4); }
+
+.tech-category-head {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: var(--s-8);
+  align-items: start;
+  margin-bottom: var(--s-8);
+}
+
+.tech-category-head h2 {
+  font-size: var(--t-md);
+  font-weight: 800;
+  border-left: 3px solid var(--cyan);
+  padding-left: var(--s-5);
+  line-height: 1.2;
+  margin: 0;
+}
+
+.tech-category-head p {
+  color: var(--mist);
+  font-size: 17px;
+  line-height: 1.55;
+  margin: 0;
+  max-width: 640px;
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-5);
+}
+
+.tech-card {
+  background: var(--ink-soft);
+  border: 1px solid var(--line-1);
+  border-top: 2px solid var(--cyan);
+  padding: var(--s-6);
+  transition: border-color 200ms ease, transform 200ms ease;
+}
+
+.tech-card:hover {
+  border-color: var(--line-2);
+  transform: translateY(-2px);
+}
+
+.tech-card-tag {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: var(--s-3);
+}
+
+.tech-card-name {
+  font-family: var(--font-display, var(--font-sans));
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--bone);
+  margin: 0 0 var(--s-3);
+  line-height: 1.15;
+}
+
+.tech-card-name .tm {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--fog);
+  vertical-align: super;
+  margin-left: 2px;
+}
+
+.tech-card-note {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--mist);
+  margin: 0;
+}
+
+.tech-card-note strong { color: var(--bone); font-weight: 600; }
+
+@media (max-width: 900px) {
+  .tech-category-head { grid-template-columns: 1fr; gap: var(--s-4); }
+  .tech-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 560px) {
+  .tech-grid { grid-template-columns: 1fr; }
+}
