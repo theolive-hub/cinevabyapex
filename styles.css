@@ -1002,28 +1002,52 @@ h1, h2, h3, h4 {
 /* ============================================================
    TECH CATEGORIES + BRAND CARDS  (our-tech.html)
    ============================================================ */
+body { counter-reset: tech-cat; }
+
 .tech-category {
-  padding: var(--s-10) 0;
-  border-top: 1px solid var(--line-1);
+  padding: var(--s-12) 0 var(--s-10);
+  border-top: 1px solid var(--line-2);
+  counter-increment: tech-cat;
 }
 
 .tech-category:first-of-type { border-top: none; padding-top: var(--s-4); }
 
 .tech-category-head {
-  display: grid;
-  grid-template-columns: 240px 1fr;
-  gap: var(--s-8);
-  align-items: start;
+  display: block;
   margin-bottom: var(--s-8);
 }
 
 .tech-category-head h2 {
-  font-size: var(--t-md);
+  font-family: 'Archivo', sans-serif;
   font-weight: 800;
-  border-left: 3px solid var(--cyan);
-  padding-left: var(--s-5);
-  line-height: 1.2;
-  margin: 0;
+  font-size: clamp(36px, 4.5vw, 56px);
+  letter-spacing: -0.02em;
+  line-height: 1.0;
+  margin: 0 0 var(--s-5);
+  border-left: none;
+  padding-left: 0;
+  color: var(--bone);
+}
+
+/* Numbered eyebrow above the heading — brand-signature pattern.
+   Lives as ::before of the h2 so it renders directly above the title. */
+.tech-category-head h2::before {
+  content: counter(tech-cat, decimal-leading-zero);
+  display: block;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  color: var(--cyan);
+  text-transform: uppercase;
+  margin-bottom: var(--s-4);
+}
+
+/* Cyan period accent — brand signature */
+.tech-category-head h2::after {
+  content: '.';
+  color: var(--cyan);
+  margin-left: 1px;
 }
 
 .tech-category-head p {
@@ -1031,7 +1055,7 @@ h1, h2, h3, h4 {
   font-size: 17px;
   line-height: 1.55;
   margin: 0;
-  max-width: 640px;
+  max-width: 760px;
 }
 
 .tech-grid {
