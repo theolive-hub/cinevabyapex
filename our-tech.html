@@ -286,4 +286,7 @@
     const links = document.getElementById('nav-links');
     if (toggle) toggle.addEventListener('click', () => { const o = links.classList.toggle('is-open'); toggle.setAttribute('aria-expanded', o); });
     const reveals = document.querySelectorAll('.reveal');
-    if ('IntersectionObserver' in window) { const obs = new Inter
+    if ('IntersectionObserver' in window) { const obs = new IntersectionObserver((entries) => { entries.forEach((e,i) => { if (e.isIntersecting) { setTimeout(() => e.target.classList.add('is-visible'), i*40); obs.unobserve(e.target); } }); }, { threshold: 0.15 }); reveals.forEach(el => obs.observe(el)); } else { reveals.forEach(el => el.classList.add('is-visible')); }
+  </script>
+</body>
+</html>
