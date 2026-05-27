@@ -3,8 +3,10 @@
    Static HTML site · GitHub Pages · No build step
    ============================================================ */
 
-/* ---- Webfonts ---- */
-@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap');
+/* ---- Webfonts ----
+   Loaded in each HTML <head> via an async pattern (media="print" onload swap)
+   with a <noscript> fallback, so the request does not block first paint.
+   Do NOT @import here — an @import would itself be render-blocking. */
 
 /* ============================================================
    1. CUSTOM PROPERTIES
@@ -16,7 +18,7 @@
   --carbon:     #292A2F;
   --smoke:      #383A40;
   --steel:      #4F525A;
-  --iron:       #6B6E78;
+  --iron:       #90939C;
   --fog:        #9598A2;
   --mist:       #C5C8D0;
   --bone:       #DDDFE5;
@@ -27,6 +29,7 @@
   --cyan:       #38B6D9;
   --cyan-deep:  #267E99;
   --cyan-soft:  #0D2A33;
+  --cyan-bright:#5FC6E2;
   --stage:      #C9337A;
   --stage-deep: #962257;
 
@@ -116,7 +119,7 @@ h1, h2, h3, h4 {
 
 .display-page {
   font-weight: 900;
-  font-size: var(--t-xxl);
+  font-size: clamp(32px, 5vw, 80px);
   line-height: 0.95;
   letter-spacing: -0.02em;
 }
@@ -282,6 +285,7 @@ h1, h2, h3, h4 {
 }
 
 .nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu,
 .nav-dropdown.is-open .nav-dropdown-menu {
   display: block;
 }
@@ -331,8 +335,8 @@ h1, h2, h3, h4 {
 }
 
 .btn-cyan:hover {
-  background: var(--cyan-deep);
-  border-color: var(--cyan-deep);
+  background: var(--cyan-bright);
+  border-color: var(--cyan-bright);
 }
 
 .btn-ghost {
@@ -620,7 +624,7 @@ h1, h2, h3, h4 {
 }
 
 /* ============================================================
-   15. ABOUT — story, prep bay, stats
+   15. ABOUT — story, warehouse, stats
    ============================================================ */
 .story-grid {
   display: grid;
@@ -663,10 +667,6 @@ h1, h2, h3, h4 {
   text-transform: uppercase;
   color: var(--fog);
   margin-top: var(--s-2);
-}
-
-.prep-bay {
-  margin-top: var(--s-16);
 }
 
 .image-slot {
@@ -898,10 +898,16 @@ h1, h2, h3, h4 {
   gap: var(--s-3);
 }
 
+/* Footer aperture mark — masked from external SVG asset so the same
+   file isn't inlined on every page. Color follows currentColor via mask. */
 .footer-mark {
+  display: inline-block;
   width: 20px;
   height: 20px;
-  color: var(--fog);
+  background-color: var(--fog);
+  -webkit-mask: url('assets/cineva-mark.svg') center / contain no-repeat;
+          mask: url('assets/cineva-mark.svg') center / contain no-repeat;
+  flex-shrink: 0;
 }
 
 .footer-brand span {
@@ -989,6 +995,19 @@ h1, h2, h3, h4 {
     text-align: center;
     justify-content: center;
   }
+
+  /* What We Do submenu: render inline/expanded in the mobile menu (no hover on touch) */
+  .nav-dropdown-menu {
+    position: static;
+    display: block;
+    margin-top: var(--s-2);
+    min-width: 0;
+    background: none;
+    border: none;
+    padding: 0 0 0 var(--s-4);
+  }
+  .nav-dropdown-menu::before { display: none; }
+  .nav-links.is-open .nav-dropdown-menu a { font-size: 15px; padding: var(--s-2) 0; }
 
   .nav-toggle { display: block; }
 
@@ -1121,4 +1140,117 @@ body { counter-reset: tech-cat; }
 
 @media (max-width: 560px) {
   .tech-grid { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   FAQ — native <details> styling (contact + service pages)
+   ============================================================ */
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  max-width: 800px;
+}
+
+.faq-item {
+  background: var(--ink-soft);
+  border: 1px solid var(--line-1);
+  border-left: 2px solid var(--cyan);
+  padding: var(--s-5) var(--s-6);
+  transition: border-color 200ms ease;
+}
+
+.faq-item[open] { border-color: var(--line-2); border-left-color: var(--cyan); }
+
+.faq-item summary {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: -0.01em;
+  color: var(--bone);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--s-4);
+}
+
+.faq-item summary::-webkit-details-marker { display: none; }
+
+.faq-item summary::after {
+  content: '+';
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 22px;
+  color: var(--cyan);
+  transition: transform 200ms ease;
+  flex-shrink: 0;
+}
+
+.faq-item[open] summary::after {
+  content: '−';
+}
+
+.faq-item p {
+  margin: var(--s-4) 0 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--mist);
+}
+
+/* ============================================================
+   NAP footer block — name/address/phone (every page footer)
+   ============================================================ */
+.footer-nap {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--fog);
+  text-align: center;
+  border-top: 1px solid var(--line-1);
+  padding-top: var(--s-4);
+  margin-top: var(--s-4);
+}
+
+.footer-nap a {
+  color: var(--fog);
+  border-bottom: 1px dotted var(--line-3);
+}
+
+.footer-nap a:hover { color: var(--cyan); border-bottom-color: var(--cyan); }
+
+/* ============================================================
+   ACCESSIBILITY — skip link + reduced motion
+   ============================================================ */
+.skip-link {
+  position: absolute;
+  left: var(--s-4);
+  top: -64px;
+  z-index: 200;
+  background: var(--cyan);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 14px;
+  padding: 10px 16px;
+  border-radius: var(--r-1);
+  transition: top var(--d-base) var(--ease-out);
+}
+.skip-link:focus {
+  top: var(--s-4);
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /uploads/
+Disallow: /Wireframes.html
+
+Sitemap: https://cinevabyapex.com/sitemap.xml
