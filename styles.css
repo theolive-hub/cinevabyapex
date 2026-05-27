@@ -1222,28 +1222,8 @@ body { counter-reset: tech-cat; }
 .footer-nap a:hover { color: var(--cyan); border-bottom-color: var(--cyan); }
 
 /* ============================================================
-   ACCESSIBILITY — skip link + reduced motion
+   ACCESSIBILITY — reduced motion
    ============================================================ */
-.skip-link {
-  position: absolute;
-  left: var(--s-4);
-  top: -64px;
-  z-index: 200;
-  background: var(--cyan);
-  color: var(--ink);
-  font-family: var(--font-sans);
-  font-weight: 700;
-  font-size: 14px;
-  padding: 10px 16px;
-  border-radius: var(--r-1);
-  transition: top var(--d-base) var(--ease-out);
-}
-.skip-link:focus {
-  top: var(--s-4);
-  outline: 2px solid var(--ink);
-  outline-offset: 2px;
-}
-
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
