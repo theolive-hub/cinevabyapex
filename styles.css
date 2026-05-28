@@ -71,7 +71,7 @@
   /* Layout */
   --container: 1280px;
   --gutter: 24px;
-  --nav-height: 88px;
+  --nav-height: 144px;
 }
 
 /* ============================================================
@@ -191,12 +191,33 @@ h1, h2, h3, h4 {
   top: 0;
   z-index: 100;
   height: var(--nav-height);
+  margin-bottom: var(--s-10);
   background: rgba(28, 29, 32, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--line-2);
   display: flex;
   align-items: center;
+}
+
+/* Sticky-buffer: a fading gradient that rides under the nav while it's pinned,
+   so body content never butts directly against the nav border on scroll. */
+.site-nav::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 112px;
+  background: linear-gradient(
+    to bottom,
+    rgba(28, 29, 32, 0.85) 0%,
+    rgba(28, 29, 32, 0.55) 40%,
+    rgba(28, 29, 32, 0) 100%
+  );
+  -webkit-backdrop-filter: blur(8px);
+          backdrop-filter: blur(8px);
+  pointer-events: none;
 }
 
 .nav-inner {
@@ -217,6 +238,9 @@ h1, h2, h3, h4 {
 .nav-lockup {
   height: 72px;
   width: auto;
+  /* The SVG uses fill="currentColor" which falls back to black when loaded via <img>.
+     Force it to white so the lockup reads on the dark nav background. */
+  filter: brightness(0) invert(1);
 }
 
 .nav-links {
@@ -881,7 +905,7 @@ h1, h2, h3, h4 {
    ============================================================ */
 .site-footer {
   margin-top: var(--s-24);
-  padding: var(--s-8) 0;
+  padding: var(--s-6) 0 var(--s-5);
   border-top: 1px solid var(--line-1);
   background: var(--carbon);
 }
@@ -890,6 +914,14 @@ h1, h2, h3, h4 {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: var(--s-5);
+  border-bottom: 1px solid var(--line-1);
 }
 
 .footer-brand {
@@ -920,6 +952,11 @@ h1, h2, h3, h4 {
   font-size: 11px;
   letter-spacing: 0.04em;
   color: var(--iron);
+}
+
+.footer-contact {
+  padding-top: var(--s-5);
+  text-align: center;
 }
 
 /* ============================================================
@@ -1015,6 +1052,7 @@ h1, h2, h3, h4 {
   .hero-ctas .btn { text-align: center; justify-content: center; }
 
   .footer-inner { flex-direction: column; gap: var(--s-4); text-align: center; }
+  .footer-top { flex-direction: column; gap: var(--s-3); text-align: center; }
   .trusted-by { flex-direction: column; align-items: center; gap: var(--s-4); }
 }
 
@@ -1205,17 +1243,13 @@ body { counter-reset: tech-cat; }
 .footer-nap {
   font-family: var(--font-mono);
   font-size: 11px;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--fog);
-  text-align: center;
-  border-top: 1px solid var(--line-1);
-  padding-top: var(--s-4);
-  margin-top: var(--s-4);
+  color: var(--iron);
 }
 
 .footer-nap a {
-  color: var(--fog);
+  color: var(--iron);
   border-bottom: 1px dotted var(--line-3);
 }
 
