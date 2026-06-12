@@ -112,21 +112,21 @@ h1, h2, h3, h4 {
 
 .display-hero {
   font-weight: 900;
-  font-size: var(--t-hero);
+  font-size: clamp(32px, 5vw, 66px);
   line-height: 0.92;
   letter-spacing: -0.03em;
 }
 
 .display-page {
   font-weight: 900;
-  font-size: clamp(32px, 5vw, 70px);
+  font-size: clamp(32px, 5vw, 66px);
   line-height: 0.95;
   letter-spacing: -0.02em;
 }
 
 .display-section {
   font-weight: 800;
-  font-size: var(--t-xl);
+  font-size: clamp(32px, 5vw, 66px);
   line-height: 1.05;
   letter-spacing: -0.02em;
 }
@@ -176,11 +176,23 @@ h1, h2, h3, h4 {
 .eyebrow {
   font-family: var(--font-sans);
   font-weight: 700;
-  font-size: var(--t-eyebrow);
-  letter-spacing: 0.2em;
+  font-size: 14px;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: var(--fog);
+  color: var(--cyan);
   margin-bottom: var(--s-6);
+  display: flex;
+  align-items: center;
+  gap: var(--s-4);
+}
+
+.eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 40px;
+  height: 2px;
+  background: var(--cyan);
+  flex-shrink: 0;
 }
 
 /* ============================================================
@@ -191,7 +203,7 @@ h1, h2, h3, h4 {
   top: 0;
   z-index: 100;
   height: var(--nav-height);
-  margin-bottom: var(--s-10);
+  margin-bottom: 0;
   background: rgba(28, 29, 32, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -384,8 +396,12 @@ h1, h2, h3, h4 {
    ============================================================ */
 .hero {
   position: relative;
-  padding: var(--s-32) 0 var(--s-24);
+  min-height: 92vh;
+  padding: 0 0 var(--s-6);
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .hero-bg {
@@ -415,7 +431,36 @@ h1, h2, h3, h4 {
 .hero-scrim {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(28,29,32,0.5) 0%, rgba(28,29,32,0.3) 30%, rgba(28,29,32,0.85) 70%, var(--ink) 100%);
+  background: linear-gradient(180deg, rgba(28,29,32,0) 0%, rgba(28,29,32,0) 40%, rgba(28,29,32,0.85) 75%, var(--ink) 100%);
+}
+
+.display-page {
+  position: relative;
+  isolation: isolate;
+}
+
+.hero .display-page,
+.sub-hero .display-page {
+  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.55);
+}
+
+.hero-card {
+  position: relative;
+  display: block;
+  width: fit-content;
+  padding: 0.02em 0.18em;
+  line-height: 0.98;
+  margin: 0;
+}
+
+.hero-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(28, 29, 32, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  z-index: -1;
 }
 
 .hero .container {
@@ -440,11 +485,26 @@ h1, h2, h3, h4 {
    9. SUB-HERO (inner pages)
    ============================================================ */
 .sub-hero {
-  padding: var(--s-24) 0 var(--s-16);
+  position: relative;
+  min-height: calc(92vh - 296px);
+  padding: 0 0 var(--s-6);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .sub-hero h1 {
-  margin-top: var(--s-6);
+  margin-top: 0;
+}
+
+.sub-hero .container {
+  position: relative;
+}
+
+/* Pull the first section up directly under the sub-hero headline */
+.sub-hero + .section {
+  padding-top: var(--s-12);
 }
 
 /* ============================================================
@@ -462,6 +522,7 @@ h1, h2, h3, h4 {
   padding: var(--s-8) var(--s-6);
   background: var(--ink);
   transition: background var(--d-base) var(--ease-out);
+  position: relative;
 }
 
 .service-card:hover {
@@ -473,12 +534,31 @@ h1, h2, h3, h4 {
   font-weight: 700;
   letter-spacing: -0.01em;
   margin-bottom: var(--s-2);
+  padding-right: 48px;
 }
 
 .service-card p {
   font-size: var(--t-caption);
   color: var(--fog);
   line-height: 1.5;
+}
+
+.service-icon {
+  position: absolute;
+  top: var(--s-8);
+  right: var(--s-6);
+  width: 32px;
+  height: 32px;
+  color: var(--cyan);
+  opacity: 1;
+  pointer-events: none;
+}
+
+.service-icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  fill: currentColor;
 }
 
 /* ============================================================
@@ -507,12 +587,46 @@ h1, h2, h3, h4 {
   text-transform: uppercase;
   letter-spacing: 0.02em;
   margin-bottom: var(--s-4);
+  display: flex;
+  align-items: center;
+  gap: var(--s-4);
+}
+
+.service-block-title a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-4);
+  transition: color 0.18s ease;
+}
+
+.service-block-title a:hover {
+  color: var(--cyan);
+}
+
+.service-block-icon {
+  width: 36px;
+  height: 36px;
+  color: var(--cyan);
+  flex-shrink: 0;
+  display: inline-flex;
+}
+
+.service-block-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+  display: block;
 }
 
 .service-block p {
   color: var(--mist);
   line-height: 1.6;
   max-width: 520px;
+  margin: 0 0 var(--s-4);
+}
+
+.service-block p:last-child {
+  margin-bottom: 0;
 }
 
 .service-block-image {
@@ -527,6 +641,18 @@ h1, h2, h3, h4 {
   justify-content: center;
 }
 
+.service-block-image a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.service-block-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .service-block-image span {
   font-family: var(--font-mono);
   font-weight: 500;
@@ -538,7 +664,8 @@ h1, h2, h3, h4 {
 
 .spec-list {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   gap: var(--s-2);
   margin-top: var(--s-6);
 }
@@ -546,16 +673,24 @@ h1, h2, h3, h4 {
 .spec-item {
   font-family: var(--font-mono);
   font-weight: 500;
-  font-size: 12px;
+  font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--fog);
+  color: var(--bone);
+  border: 1px solid var(--cyan);
+  background: rgba(56, 182, 217, 0.08);
+  padding: 6px 12px;
+  display: inline-flex;
+  align-items: center;
+  transition: background var(--d-fast) var(--ease-out);
+}
+
+.spec-item:hover {
+  background: rgba(56, 182, 217, 0.18);
 }
 
 .spec-item::before {
-  content: "·";
-  margin-right: var(--s-2);
-  color: var(--cyan);
+  content: none;
 }
 
 /* ============================================================
@@ -886,18 +1021,25 @@ h1, h2, h3, h4 {
 
 .hours-strip {
   margin-top: var(--s-12);
-  padding: var(--s-6) 0;
-  border-top: 1px solid var(--line-1);
-  border-bottom: 1px solid var(--line-1);
+  padding: var(--s-5) var(--s-6);
+  border-top: 1px solid var(--cyan);
+  border-bottom: 1px solid var(--cyan);
+  background: rgba(56, 182, 217, 0.06);
 }
 
 .hours-strip p {
   font-family: var(--font-mono);
-  font-weight: 500;
-  font-size: 13px;
-  letter-spacing: 0.06em;
-  color: var(--fog);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.1em;
+  color: var(--bone);
   text-align: center;
+  margin: 0;
+}
+
+.hours-strip .accent {
+  color: var(--cyan);
+  font-weight: 700;
 }
 
 /* ============================================================
@@ -1086,18 +1228,24 @@ body { counter-reset: tech-cat; }
   color: var(--bone);
 }
 
-/* Numbered eyebrow above the heading — brand-signature pattern.
-   Lives as ::before of the h2 so it renders directly above the title. */
-.tech-category-head h2::before {
-  content: counter(tech-cat, decimal-leading-zero);
-  display: block;
-  font-family: var(--font-mono);
-  font-weight: 500;
-  font-size: 13px;
-  letter-spacing: 0.16em;
+/* Numbers removed in favour of inline category icons. */
+.tech-category-head h2::before { display: none; }
+
+.tech-category-icon {
+  display: inline-flex;
+  align-items: center;
+  width: 0.9em;
+  height: 0.9em;
   color: var(--cyan);
-  text-transform: uppercase;
-  margin-bottom: var(--s-4);
+  margin-right: 0.35em;
+  vertical-align: -0.06em;
+}
+
+.tech-category-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+  display: block;
 }
 
 /* Cyan period accent — brand signature */
