@@ -1104,16 +1104,18 @@ h1, h2, h3, h4 {
 /* ============================================================
    19. SCROLL REVEAL
    ============================================================ */
-.reveal {
+/* Hidden initial state only applies when JS is confirmed running
+   (the .js class is added by app.js). Without JS, content stays visible. */
+.js .reveal {
   opacity: 0;
   transform: translateY(8px);
-  transition: opacity var(--d-slow) var(--ease-out),
-              transform var(--d-slow) var(--ease-out);
 }
 
-.reveal.is-visible {
+.js .reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
+  transition: opacity var(--d-slow) var(--ease-out),
+              transform var(--d-slow) var(--ease-out);
 }
 
 /* ============================================================

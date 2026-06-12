@@ -7,6 +7,12 @@
 (function () {
   'use strict';
 
+  /* ---- Progressive enhancement flag ----
+     Mark the document as JS-capable. The scroll-reveal CSS only hides
+     content under `.js`, so if this script fails to load or run, all
+     content stays visible instead of being stuck at opacity:0. */
+  document.documentElement.classList.add('js');
+
   /* ---- Mobile nav toggle ---- */
   var toggle = document.getElementById('nav-toggle');
   var links = document.getElementById('nav-links');
@@ -85,6 +91,15 @@
       });
     }, { threshold: 0.15 });
     reveals.forEach(function (el) { obs.observe(el); });
+
+    /* Failsafe: after full load, reveal anything still hidden (e.g. if the
+       observer never fired for an element). Content visibility must not
+       depend on a scroll event happening. */
+    window.addEventListener('load', function () {
+      window.setTimeout(function () {
+        reveals.forEach(function (el) { el.classList.add('is-visible'); });
+      }, 600);
+    });
   } else {
     reveals.forEach(function (el) { el.classList.add('is-visible'); });
   }
