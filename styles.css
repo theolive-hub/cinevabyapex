@@ -970,6 +970,40 @@ h1, h2, h3, h4 {
   color: var(--iron);
 }
 
+/* Trusted-by grid (3 x 3) */
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--line-1);
+  margin-top: var(--s-8);
+}
+
+.trust-cell {
+  background: var(--ink);
+  padding: var(--s-16) var(--s-8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.trust-cell span {
+  font-family: var(--font-sans);
+  font-weight: 900;
+  font-size: 36px;
+  letter-spacing: -0.02em;
+  color: var(--mist);
+}
+
+.trust-cell img {
+  display: block;
+  max-height: 36px;
+  max-width: 70%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
 /* ============================================================
    17. CONTACT
    ============================================================ */
