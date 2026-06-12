@@ -98,8 +98,15 @@
   <section class="section reveal">
     <div class="container">
       <p class="eyebrow">Demo reel</p>
-      <div class="reel-slot">
-        <iframe src="https://www.youtube-nocookie.com/embed/p3-LSlaoA74?rel=0" title="Cineva demo reel" style="position:absolute; inset:0; width:100%; height:100%; border:0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <div class="reel-slot cineva-facade" id="mainreel" data-id="p3-LSlaoA74" data-title="Cineva 2026 Demo Reel" style="position:relative; cursor:pointer;">
+        <img src="assets/cineva-demo-reel.jpg" alt="Cineva 2026 Demo Reel" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;">
+        <button type="button" aria-label="Play Cineva 2026 Demo Reel" style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; border:0; background:transparent; cursor:pointer; padding:0;">
+          <svg viewBox="0 0 88 88" width="68" height="68" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="filter:drop-shadow(0 4px 18px rgba(0,0,0,.45));">
+            <circle cx="44" cy="44" r="42" fill="#C9337A"/>
+            <circle cx="44" cy="44" r="42" fill="none" stroke="#fff" stroke-opacity=".25" stroke-width="2"/>
+            <path d="M35 28 L63 44 L35 60 Z" fill="#fff"/>
+          </svg>
+        </button>
       </div>
     </div>
   </section>
@@ -111,7 +118,7 @@
       <div class="case-grid">
 
         <div class="case-card">
-          <div class="case-thumb cineva-facade" id="proj1" data-id="8ZicrixPCZs" style="position:relative; cursor:pointer;">
+          <div class="case-thumb cineva-facade" id="proj1" data-id="8ZicrixPCZs" data-title="Super Bowl LVII reel" style="position:relative; cursor:pointer;">
             <img src="assets/cineva-sb-lvii.jpg" alt="Cineva — Super Bowl LVII reel" loading="lazy" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;">
             <button type="button" aria-label="Play Super Bowl LVII reel" style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; border:0; background:transparent; cursor:pointer; padding:0;">
               <svg viewBox="0 0 88 88" width="68" height="68" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="filter:drop-shadow(0 4px 18px rgba(0,0,0,.45));">
@@ -185,24 +192,25 @@
 
   <script src="app.js" defer></script>
   <script>
-    // Project 1 click-to-play façade — loads the YouTube player only on click,
-    // with controls=0 so no bottom bar/logo. Poster stays clean until then.
+    // Click-to-play façade — loads the YouTube player only on click, with
+    // controls=0 (no bottom bar/logo). Posters stay clean until then.
+    // Covers the main reel, Project 1, and any future .cineva-facade card.
     (function () {
-      var el = document.getElementById('proj1');
-      if (!el) return;
-      el.addEventListener('click', function () {
-        var f = document.createElement('iframe');
-        f.src = 'https://www.youtube-nocookie.com/embed/' + this.dataset.id +
-                '?autoplay=1&rel=0&playsinline=1&controls=0';
-        f.title = 'Super Bowl LVII reel';
-        f.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
-        f.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
-        f.setAttribute('allowfullscreen', '');
-        f.style.cssText = 'position:absolute; inset:0; width:100%; height:100%; border:0;';
-        this.innerHTML = '';
-        this.appendChild(f);
-        this.style.cursor = 'default';
-      }, { once: true });
+      document.querySelectorAll('.cineva-facade[data-id]').forEach(function (el) {
+        el.addEventListener('click', function () {
+          var f = document.createElement('iframe');
+          f.src = 'https://www.youtube-nocookie.com/embed/' + this.dataset.id +
+                  '?autoplay=1&rel=0&playsinline=1&controls=0';
+          f.title = this.getAttribute('data-title') || 'Cineva reel';
+          f.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+          f.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+          f.setAttribute('allowfullscreen', '');
+          f.style.cssText = 'position:absolute; inset:0; width:100%; height:100%; border:0;';
+          this.innerHTML = '';
+          this.appendChild(f);
+          this.style.cursor = 'default';
+        }, { once: true });
+      });
     })();
   </script>
 </body>

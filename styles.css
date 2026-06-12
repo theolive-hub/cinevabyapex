@@ -164,7 +164,7 @@ h1, h2, h3, h4 {
 }
 
 .section {
-  padding: var(--s-24) 0;
+  padding: calc(var(--s-24) * 0.6) 0; /* 96px -> ~58px: section gaps tightened 40%, kept equal */
   border-top: 1px solid var(--line-1);
 }
 
