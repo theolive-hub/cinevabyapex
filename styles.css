@@ -1221,9 +1221,9 @@ body { counter-reset: tech-cat; }
 .tech-category-head h2 {
   font-family: 'Archivo', sans-serif;
   font-weight: 800;
-  font-size: clamp(36px, 4.5vw, 56px);
+  font-size: clamp(28px, 3.4vw, 42px);
   letter-spacing: -0.02em;
-  line-height: 1.0;
+  line-height: 1.05;
   margin: 0 0 var(--s-5);
   border-left: none;
   padding-left: 0;
@@ -1236,8 +1236,8 @@ body { counter-reset: tech-cat; }
 .tech-category-icon {
   display: inline-flex;
   align-items: center;
-  width: 0.9em;
-  height: 0.9em;
+  width: 0.82em;
+  height: 0.82em;
   color: var(--cyan);
   margin-right: 0.35em;
   vertical-align: -0.06em;
