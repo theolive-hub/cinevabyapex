@@ -16,15 +16,20 @@
   /* ---- Mobile nav toggle ---- */
   var toggle = document.getElementById('nav-toggle');
   var links = document.getElementById('nav-links');
+  var siteNav = document.querySelector('.site-nav');
   if (toggle && links) {
     toggle.addEventListener('click', function () {
       var open = links.classList.toggle('is-open');
       toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      // Remove backdrop-filter from site-nav while the overlay is open so that
+      // position:fixed on .nav-links.is-open resolves to the viewport, not the nav bar.
+      if (siteNav) siteNav.classList.toggle('is-nav-open', open);
     });
     links.querySelectorAll('a').forEach(function (a) {
       a.addEventListener('click', function () {
         links.classList.remove('is-open');
         toggle.setAttribute('aria-expanded', 'false');
+        if (siteNav) siteNav.classList.remove('is-nav-open');
       });
     });
   }
