@@ -1214,6 +1214,7 @@ h1, h2, h3, h4 {
   .nav-links.is-open {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     position: fixed;
     inset: var(--nav-height) 0 0 0;
     background: var(--ink);
@@ -1221,6 +1222,11 @@ h1, h2, h3, h4 {
     gap: var(--s-6);
     border-top: 1px solid var(--line-2);
     z-index: 99;
+    overflow-y: auto;
+  }
+
+  .site-nav.is-nav-open::after {
+    display: none;
   }
 
   .nav-links.is-open a {
@@ -1488,7 +1494,7 @@ body { counter-reset: tech-cat; }
   background: var(--carbon);
   border: 1px solid var(--line-2);
   border-radius: var(--r-2);
-  color: var(--ink);
+  color: var(--white);
   font-family: var(--font-sans);
   font-size: var(--t-body);
   padding: var(--s-3) var(--s-4);
