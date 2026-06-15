@@ -555,7 +555,7 @@ h1, h2, h3, h4 {
   right: var(--s-6);
   width: 32px;
   height: 32px;
-  color: var(--cyan);
+  color: var(--stage);
   opacity: 1;
   pointer-events: none;
 }
@@ -612,7 +612,7 @@ h1, h2, h3, h4 {
 .service-block-icon {
   width: 36px;
   height: 36px;
-  color: var(--cyan);
+  color: var(--stage);
   flex-shrink: 0;
   display: inline-flex;
 }
@@ -1470,8 +1470,8 @@ body { counter-reset: tech-cat; }
 .form-field input,
 .form-field select,
 .form-field textarea {
-  background: var(--surface-1);
-  border: 1px solid var(--line-1);
+  background: var(--carbon);
+  border: 1px solid var(--line-2);
   border-radius: var(--r-2);
   color: var(--ink);
   font-family: var(--font-sans);
