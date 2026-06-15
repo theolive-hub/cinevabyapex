@@ -217,7 +217,6 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   </main>
 
   <footer class="site-footer">
@@ -237,12 +236,25 @@
 
   <script src="app.js" defer></script>
   <script>
-    // Click-to-play façade — loads the YouTube player only on click, with
-    // controls=0 (no bottom bar/logo). Posters stay clean until then.
-    // Covers the main reel, Project 1, and any future .cineva-facade card.
+    // Click-to-play facade — swaps the poster + play button for a YouTube
+    // iframe on click. autoplay=1 starts playback immediately.
     (function () {
       document.querySelectorAll('.cineva-facade[data-id]').forEach(function (el) {
         el.addEventListener('click', function () {
+          var id = this.dataset.id;
+          var title = this.dataset.title || 'YouTube video';
           var f = document.createElement('iframe');
-          f.src = 'https://www.youtube-nocookie.com/embed/' + this.dataset.id +
-             
+          f.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0';
+          f.title = title;
+          f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+          f.allowFullscreen = true;
+          f.style.cssText = 'position:absolute; inset:0; width:100%; height:100%; border:0;';
+          while (this.firstChild) { this.removeChild(this.firstChild); }
+          this.appendChild(f);
+          this.style.cursor = 'default';
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

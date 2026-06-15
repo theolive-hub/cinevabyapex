@@ -75,9 +75,10 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {"@type": "Question", "name": "How many cameras can you remap simultaneously?", "acceptedAnswer": {"@type": "Answer", "text": "Multi-camera setups supported — each camera sees its own correct perspective on the wall."}},
-    {"@type": "Question", "name": "Does this work with interleaved frames for keying?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Frames can be interleaved between camera angles when chroma-key compositing is in the workflow."}},
-    {"@type": "Question", "name": "What's the latency?", "acceptedAnswer": {"@type": "Answer", "text": "Frame-accurate. Sync to camera is the design constraint, not an afterthought."}}
+    {"@type": "Question", "name": "What is frame remapping?", "acceptedAnswer": {"@type": "Answer", "text": "A Brompton Tessera feature that lets multiple cameras each see a different, correctly rendered perspective on the same LED wall at the same time. Without it, camera tracking only looks right from one position. With it, every camera sees its own point of view."}},
+    {"@type": "Question", "name": "We're shooting multi-camera. Does each camera get the right background?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Frame remapping sends each camera its own rendered perspective, even though they're all looking at the same wall. Each one sees the scene from where it's standing."}},
+    {"@type": "Question", "name": "Can we shoot virtual background and green screen at the same time?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Frame remapping lets you interleave solid colour frames between your content frames. One camera captures the VP background, another captures a clean green or blue matte off the same wall. You get both in a single shoot."}},
+    {"@type": "Question", "name": "Does frame remapping work alongside your other processing features?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, it runs in harmony with HFR+, Ultra Low Latency, and ShutterSync on the SX40 and S8. No trade-offs in the rest of your pipeline."}}
   ]
 }
   </script>
@@ -183,16 +184,20 @@
       <h2 class="display-section" style="margin-bottom: var(--s-8);">Before you spec the remap<span class="pt">.</span></h2>
       <div class="faq-list">
         <details class="faq-item">
-          <summary>How many cameras can you remap simultaneously?</summary>
-          <p>Multi-camera setups supported — each camera sees its own correct perspective on the wall.</p>
+          <summary>What is frame remapping?</summary>
+          <p>A Brompton Tessera feature that lets multiple cameras each see a different, correctly rendered perspective on the same LED wall at the same time. Without it, camera tracking only looks right from one position. With it, every camera sees its own point of view.</p>
         </details>
         <details class="faq-item">
-          <summary>Does this work with interleaved frames for keying?</summary>
-          <p>Yes. Frames can be interleaved between camera angles when chroma-key compositing is in the workflow.</p>
+          <summary>We're shooting multi-camera. Does each camera get the right background?</summary>
+          <p>Yes. Frame remapping sends each camera its own rendered perspective, even though they're all looking at the same wall. Each one sees the scene from where it's standing.</p>
         </details>
         <details class="faq-item">
-          <summary>What's the latency?</summary>
-          <p>Frame-accurate. Sync to camera is the design constraint, not an afterthought.</p>
+          <summary>Can we shoot virtual background and green screen at the same time?</summary>
+          <p>Yes. Frame remapping lets you interleave solid colour frames between your content frames. One camera captures the VP background, another captures a clean green or blue matte off the same wall. You get both in a single shoot.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Does frame remapping work alongside your other processing features?</summary>
+          <p>Yes, it runs in harmony with HFR+, Ultra Low Latency, and ShutterSync on the SX40 and S8. No trade-offs in the rest of your pipeline.</p>
         </details>
       </div>
     </div>
