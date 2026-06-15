@@ -524,6 +524,10 @@ h1, h2, h3, h4 {
   margin-top: var(--s-8);
 }
 
+.service-grid--five {
+  grid-template-columns: repeat(5, 1fr);
+}
+
 .service-card {
   padding: var(--s-8) var(--s-6);
   background: var(--ink);
@@ -1168,7 +1172,8 @@ h1, h2, h3, h4 {
   .sub-hero { padding: var(--s-16) 0 var(--s-12); }
   .section { padding: var(--s-16) 0; }
 
-  .service-grid { grid-template-columns: repeat(2, 1fr); }
+  .service-grid,
+  .service-grid--five { grid-template-columns: repeat(2, 1fr); }
   .pillars { grid-template-columns: repeat(2, 1fr); }
   .story-grid { grid-template-columns: 1fr; }
   .contact-grid { grid-template-columns: 1fr; }
@@ -1413,12 +1418,12 @@ body { counter-reset: tech-cat; }
 .faq-item {
   background: var(--ink-soft);
   border: 1px solid var(--line-1);
-  border-left: 2px solid var(--cyan);
+  border-left: 2px solid var(--stage);
   padding: var(--s-5) var(--s-6);
   transition: border-color 200ms ease;
 }
 
-.faq-item[open] { border-color: var(--line-2); border-left-color: var(--cyan); }
+.faq-item[open] { border-color: var(--line-2); border-left-color: var(--stage); }
 
 .faq-item summary {
   font-family: 'Archivo', sans-serif;
@@ -1441,7 +1446,7 @@ body { counter-reset: tech-cat; }
   font-family: var(--font-mono);
   font-weight: 500;
   font-size: 22px;
-  color: var(--cyan);
+  color: var(--stage);
   transition: transform 200ms ease;
   flex-shrink: 0;
 }
