@@ -26,6 +26,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap"></noscript>
+  <link rel="preload" as="image" href="assets/contact-hero.webp" fetchpriority="high">
   <link rel="stylesheet" href="styles.css">
 
   <script type="application/ld+json">
@@ -97,6 +98,7 @@
   </script>
 </head>
 <body>
+  <a href="#main" class="skip-link">Skip to content</a>
 
   <!-- NAV -->
   <nav class="site-nav" role="navigation">
@@ -109,7 +111,7 @@
         <div class="nav-dropdown">
           <a href="what-we-do.html" class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">What We Do</a>
           <div class="nav-dropdown-menu">
-            <a href="led-volumes.html">LED Volumes</a>
+            <a href="led-volumes.html">LED Video Volumes</a>
             <a href="driving-plates.html">Driving Plates</a>
             <a href="frame-remapping.html">Frame Remapping</a>
             <a href="server-playback.html">Server Playback</a>
@@ -132,10 +134,10 @@
 
   <!-- SUB-HERO -->
   <section class="sub-hero">
-    <div class="hero-bg"></div>
+    <div class="hero-bg"><img src="assets/contact-hero.webp" alt=""></div>
     <div class="hero-scrim"></div>
     <div class="container">
-      <h1 class="display-page">
+      <h1 class="display-page" style="transform: translateY(calc(-1 * clamp(32px, 5vw, 66px) * 1.02))">
         <span class="hero-card">One call<span class="pt">.</span></span>
         <span class="hero-card">Full delivery<span class="pt">.</span></span>
       </h1>
@@ -166,6 +168,64 @@
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- CONTACT FORM -->
+  <section class="section reveal" style="border-top: 1px solid var(--line-1);">
+    <div class="container">
+      <p class="eyebrow">Send us a brief</p>
+      <h2 class="display-section" style="margin-bottom: var(--s-3);">Tell us about the shoot<span class="pt">.</span></h2>
+      <p style="color: var(--muted); margin-bottom: var(--s-10);">Call us directly for same-day jobs. For planned productions, fill this out — we'll get back to you within one business day.</p>
+
+      <form class="contact-form" action="https://formspree.io/f/xgobdwep" method="POST" novalidate>
+        <input type="hidden" name="_subject" value="New enquiry via cinevabyapex.com">
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
+        <div class="form-row form-row--2">
+          <div class="form-field">
+            <label for="cf-name">Name <span aria-hidden="true">*</span></label>
+            <input id="cf-name" name="name" type="text" autocomplete="name" required placeholder="Your name">
+          </div>
+          <div class="form-field">
+            <label for="cf-company">Company</label>
+            <input id="cf-company" name="company" type="text" autocomplete="organization" placeholder="Production company">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label for="cf-email">Email <span aria-hidden="true">*</span></label>
+            <input id="cf-email" name="email" type="email" autocomplete="email" required placeholder="you@studio.com">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label for="cf-type">Production type</label>
+            <select id="cf-type" name="production_type">
+              <option value="" disabled selected>Select one</option>
+              <option>Feature film</option>
+              <option>TV series / streaming</option>
+              <option>Commercial</option>
+              <option>Music video</option>
+              <option>Corporate / branded</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label for="cf-message">Message <span aria-hidden="true">*</span></label>
+            <textarea id="cf-message" name="message" rows="5" required placeholder="Stage, gear, services, timeline — the more context, the better."></textarea>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <button type="submit" class="btn btn-cyan">Send enquiry</button>
+        </div>
+      </form>
     </div>
   </section>
 
@@ -204,7 +264,7 @@
           <span class="footer-mark" aria-hidden="true"></span>
           <span>Cineva · by Apex Sound &amp; Light</span>
         </div>
-        <span class="footer-legal">© 2026 Apex Sound &amp; Light · Toronto, ON</span>
+        <span class="footer-legal">© 2026 Apex Sound &amp; Light · Toronto, ON · <a href="privacy.html">Privacy Policy</a></span>
       </div>
       <div class="footer-contact">
         <span class="footer-nap">1845 Clements Rd, Pickering, ON L1W 3R8 · <a href="tel:18665112739">1-866-511-2739</a> · <a href="mailto:hello@cinevabyapex.com">hello@cinevabyapex.com</a></span>

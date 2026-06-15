@@ -463,6 +463,10 @@ h1, h2, h3, h4 {
   z-index: -1;
 }
 
+.hero-card--no-bg::before {
+  display: none;
+}
+
 .hero .container {
   position: relative;
 }
@@ -1072,7 +1076,7 @@ h1, h2, h3, h4 {
 }
 
 .hours-strip .accent {
-  color: var(--cyan);
+  color: var(--stage);
   font-weight: 700;
 }
 
@@ -1272,7 +1276,7 @@ body { counter-reset: tech-cat; }
   align-items: center;
   width: 0.82em;
   height: 0.82em;
-  color: var(--cyan);
+  color: var(--stage);
   margin-right: 0.35em;
   vertical-align: -0.06em;
 }
@@ -1440,8 +1444,83 @@ body { counter-reset: tech-cat; }
 .footer-nap a:hover { color: var(--cyan); border-bottom-color: var(--cyan); }
 
 /* ============================================================
-   ACCESSIBILITY — reduced motion
+   CONTACT FORM
    ============================================================ */
+.contact-form { max-width: 720px; }
+
+.form-row { display: flex; flex-direction: column; gap: var(--s-5); margin-bottom: var(--s-5); }
+.form-row--2 { flex-direction: row; }
+@media (max-width: 640px) { .form-row--2 { flex-direction: column; } }
+
+.form-field { display: flex; flex-direction: column; gap: var(--s-2); flex: 1; }
+
+.form-field label {
+  font-size: var(--t-caption);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+.form-field label span { color: var(--stage); }
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  background: var(--surface-1);
+  border: 1px solid var(--line-1);
+  border-radius: var(--r-2);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: var(--t-body);
+  padding: var(--s-3) var(--s-4);
+  transition: border-color 0.15s ease;
+  width: 100%;
+}
+.form-field input::placeholder,
+.form-field textarea::placeholder { color: var(--muted); opacity: 0.6; }
+
+.form-field input:hover,
+.form-field select:hover,
+.form-field textarea:hover { border-color: var(--line-2); }
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  border-color: var(--cyan);
+  outline: none;
+}
+
+.form-field select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238C8F9A' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right var(--s-4) center; padding-right: var(--s-8); }
+
+.form-field textarea { resize: vertical; min-height: 120px; }
+
+/* ============================================================
+   ACCESSIBILITY — focus, skip link, reduced motion
+   ============================================================ */
+
+/* Focus indicator — keyboard users */
+:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
+  border-radius: var(--r-1);
+}
+
+/* Skip to content link */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--s-4);
+  background: var(--cyan);
+  color: var(--ink);
+  padding: var(--s-2) var(--s-4);
+  border-radius: var(--r-2);
+  font-weight: 700;
+  font-size: var(--t-caption);
+  z-index: 9999;
+  text-decoration: none;
+}
+.skip-link:focus { top: var(--s-4); }
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }

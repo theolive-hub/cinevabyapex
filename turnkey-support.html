@@ -26,6 +26,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap"></noscript>
+  <link rel="preload" as="image" href="assets/turnkey-hero.webp" fetchpriority="high">
   <link rel="stylesheet" href="styles.css">
 
   <script type="application/ld+json">
@@ -81,6 +82,7 @@
   </script>
 </head>
 <body>
+  <a href="#main" class="skip-link">Skip to content</a>
 
   <nav class="site-nav" role="navigation">
     <div class="nav-inner">
@@ -92,7 +94,7 @@
         <div class="nav-dropdown">
           <a href="what-we-do.html" class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false" aria-current="page">What We Do</a>
           <div class="nav-dropdown-menu">
-            <a href="led-volumes.html">LED Volumes</a>
+            <a href="led-volumes.html">LED Video Volumes</a>
             <a href="driving-plates.html">Driving Plates</a>
             <a href="frame-remapping.html">Frame Remapping</a>
             <a href="server-playback.html">Server Playback</a>
@@ -115,10 +117,10 @@
 
   <!-- SUB-HERO -->
   <section class="sub-hero">
-    <div class="hero-bg"><img src="assets/turnkey-hero.jpg" alt=""></div>
+    <div class="hero-bg"><img src="assets/turnkey-hero.webp" alt=""></div>
     <div class="hero-scrim"></div>
     <div class="container">
-      <h1 class="display-page">
+      <h1 class="display-page" style="transform: translateY(calc(-1 * clamp(32px, 5vw, 66px) * 1.02))">
         <span class="hero-card">Turnkey Support<span class="pt">.</span></span>
         <span class="hero-card">One call, full delivery<span class="pt">.</span></span>
       </h1>
@@ -129,7 +131,7 @@
   <section class="section">
     <div class="container">
       <div class="service-block-image" style="aspect-ratio:21/9;">
-        <img src="assets/turnkey-body.jpg" alt="Full crew turnkey delivery on set">
+        <img src="assets/turnkey-body.jpg" alt="Full crew turnkey delivery on set" width="1584" height="672" loading="lazy">
       </div>
     </div>
   </section>
@@ -162,7 +164,7 @@
     <div class="container">
       <h2 class="eyebrow">More services</h2>
       <div class="service-grid" style="grid-template-columns: repeat(5, 1fr);">
-          <a href="led-volumes.html" class="service-card"><h3>LED Volumes</h3><p>View service →</p></a>
+          <a href="led-volumes.html" class="service-card"><h3>LED Video Volumes</h3><p>View service →</p></a>
           <a href="driving-plates.html" class="service-card"><h3>Driving Plates</h3><p>View service →</p></a>
           <a href="frame-remapping.html" class="service-card"><h3>Frame Remapping</h3><p>View service →</p></a>
           <a href="server-playback.html" class="service-card"><h3>Server Playback</h3><p>View service →</p></a>
@@ -210,14 +212,9 @@
           <span class="footer-mark" aria-hidden="true"></span>
           <span>Cineva · by Apex Sound &amp; Light</span>
         </div>
-        <span class="footer-legal">© 2026 Apex Sound &amp; Light · Toronto, ON</span>
+        <span class="footer-legal">© 2026 Apex Sound &amp; Light · Toronto, ON · <a href="privacy.html">Privacy Policy</a></span>
       </div>
       <div class="footer-contact">
         <span class="footer-nap">1845 Clements Rd, Pickering, ON L1W 3R8 · <a href="tel:18665112739">1-866-511-2739</a> · <a href="mailto:hello@cinevabyapex.com">hello@cinevabyapex.com</a></span>
       </div>
-    </div>
-  </footer>
-
-  <script src="app.js" defer></script>
-</body>
-</html>
+    </d
