@@ -81,8 +81,10 @@
 
 html {
   -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
 }
 
 body {
@@ -1190,6 +1192,8 @@ h1, h2, h3, h4 {
   .pillars { grid-template-columns: 1fr; }
   .network-grid { grid-template-columns: 1fr; }
   .stat-grid { grid-template-columns: 1fr; }
+  .case-grid { grid-template-columns: 1fr; }
+  .trust-grid { grid-template-columns: 1fr; }
 
   .nav-links { display: none; }
   .nav-links.is-open {
