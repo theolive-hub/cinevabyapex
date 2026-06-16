@@ -137,14 +137,7 @@
     <section class="section">
       <div class="container">
 
-        <header class="news-masthead-slim">
-          <div class="news-dateline">
-            <span class="cyan">Cineva Dispatch</span>
-            <span>Set-facing AV · Toronto + GTA</span>
-            <span id="news-updated"></span>
-          </div>
-          <h1 class="news-h1">Notes from the floor<span class="pt">.</span></h1>
-        </header>
+        <h1 style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;">Cineva news and field notes</h1>
 
         <div class="news-layout">
 
@@ -279,9 +272,9 @@
       function buildFilter(){
         var counts = {};
         ALL.forEach(function(a){ (a.services || []).forEach(function(k){ counts[k] = (counts[k] || 0) + 1; }); });
-        var html = '<button type="button" data-svc="all" aria-pressed="true">All <span class="cnt">' + ALL.length + '</span></button>';
+        var html = '<button type="button" data-svc="all" aria-pressed="' + (activeSvc === 'all' ? 'true' : 'false') + '">All <span class="cnt">' + ALL.length + '</span></button>';
         Object.keys(SVC).forEach(function(k){
-          if (counts[k]) html += '<button type="button" data-svc="' + k + '" aria-pressed="false">' + SVC[k].label + ' <span class="cnt">' + counts[k] + '</span></button>';
+          if (counts[k]) html += '<button type="button" data-svc="' + k + '" aria-pressed="' + (activeSvc === k ? 'true' : 'false') + '">' + SVC[k].label + ' <span class="cnt">' + counts[k] + '</span></button>';
         });
         filterEl.innerHTML = html;
         filterEl.querySelectorAll('button').forEach(function(b){
@@ -325,6 +318,8 @@
           ALL = (data.articles || []).filter(function(a){ return a.visible === true; });
           ALL.sort(function(a,b){ return (b.date || '').localeCompare(a.date || ''); });
           if (!ALL.length){ empty.hidden = false; return; }
+          // Deep links from an article's sidebar: ?q= prefills search, ?topic= preselects a filter.
+          try { var P = new URLSearchParams(location.search); var qp = P.get('q'); var tp = P.get('topic'); if (qp){ query = qp; if (searchEl) searchEl.value = qp; } if (tp && SVC[tp]) activeSvc = tp; } catch(e){}
           buildFilter();
           buildLists();
           wireTabs();

@@ -51,6 +51,40 @@
     .article-cta { margin-top: var(--s-8,2.5rem); border-top:1px solid rgba(255,255,255,.10); padding-top: var(--s-8,2rem); display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1rem; }
     .article-cta h2 { margin:0; font-size:1.5rem; }
     .article-cta .sub { font-family:'JetBrains Mono',monospace; font-size:.78rem; opacity:.6; text-transform:uppercase; letter-spacing:.04em; margin:.3rem 0 0; }
+    /* ===== news sidebar (shared look with the index, so it persists on click) ===== */
+    .news-layout { display:grid; grid-template-columns:250px minmax(0,1fr); gap:clamp(1.5rem,3vw,3rem); align-items:start; margin-top:.5rem; }
+    .article-main { min-width:0; }
+    .news-sidebar { position:sticky; top:88px; display:flex; flex-direction:column; gap:1.7rem; }
+    .news-side-h { font-family:'JetBrains Mono',monospace; font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; opacity:.6; margin:0 0 .65rem; display:block; }
+    .news-search { width:100%; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.13); border-radius:6px; color:#DDDFE5; font-family:'Archivo',system-ui,sans-serif; font-size:.9rem; padding:.55rem .7rem; }
+    .news-search:focus { outline:none; border-color:var(--cyan,#38e1d6); }
+    .news-search::placeholder { color:rgba(221,223,229,.4); }
+    .news-filter { display:flex; flex-direction:column; gap:.15rem; }
+    .news-filter a { color:inherit; text-decoration:none; font-family:'JetBrains Mono',monospace; font-size:.74rem; letter-spacing:.02em; text-transform:uppercase; opacity:.7; padding:.32rem .15rem; display:flex; justify-content:space-between; gap:.5rem; transition:opacity .15s, color .15s; }
+    .news-filter a:hover { opacity:1; color:var(--cyan,#38e1d6); }
+    .news-sitelinks { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:.6rem; }
+    .news-sitelinks a { color:inherit; text-decoration:none; font-size:.9rem; line-height:1.3; opacity:.85; transition:color .15s, opacity .15s; }
+    .news-sitelinks a:hover { color:var(--cyan,#38e1d6); opacity:1; }
+    .news-tabs { display:flex; gap:1.1rem; border-bottom:1px solid rgba(255,255,255,.12); margin-bottom:.4rem; }
+    .news-tab { background:none; border:none; color:inherit; font-family:'JetBrains Mono',monospace; font-size:.67rem; letter-spacing:.09em; text-transform:uppercase; opacity:.55; padding:0 0 .5rem; cursor:pointer; border-bottom:2px solid transparent; margin-bottom:-1px; }
+    .news-tab[aria-selected="true"] { opacity:1; color:var(--cyan,#38e1d6); border-bottom-color:var(--cyan,#38e1d6); }
+    .news-poplist { list-style:none; margin:0; padding:0; }
+    .news-poplist li { border-bottom:1px solid rgba(255,255,255,.08); }
+    .news-poplist li:last-child { border-bottom:none; }
+    .news-poplist a { display:flex; gap:.7rem; align-items:flex-start; padding:.7rem 0; text-decoration:none; color:inherit; }
+    .news-poplist a:hover .pop-title { color:var(--cyan,#38e1d6); }
+    .pop-thumb { flex:none; width:56px; height:42px; border-radius:4px; overflow:hidden; background:#111; }
+    .pop-thumb img { width:100%; height:100%; object-fit:cover; display:block; }
+    .pop-title { font-size:.83rem; line-height:1.25; opacity:.9; }
+    .news-side-cta { border:1px solid rgba(255,255,255,.12); border-radius:8px; padding:1.1rem; background:rgba(56,225,214,.04); }
+    .news-side-cta p { margin:0 0 .7rem; font-size:.92rem; }
+    .article-keywords { margin-top: var(--s-6,1.5rem); padding-top:1rem; border-top:1px solid rgba(255,255,255,.08); font-family:'JetBrains Mono',monospace; font-size:.72rem; letter-spacing:.03em; text-transform:uppercase; opacity:.7; }
+    .article-keywords b { color:var(--cyan,#38e1d6); font-weight:700; margin-right:.4rem; }
+    @media (max-width:960px){
+      .news-layout { grid-template-columns:1fr; }
+      .news-sidebar { position:static; order:2; margin-top:2.4rem; padding-top:1.7rem; border-top:1px solid rgba(255,255,255,.1); }
+      .article-main { order:1; }
+    }
   </style>
 </head>
 <body data-slug="driving-plates-vs-stock">
@@ -78,7 +112,46 @@
 
   <main id="main">
     <section class="section">
-      <div class="container article-wrap">
+      <div class="container">
+        <div class="news-layout">
+
+          <aside class="news-sidebar" aria-label="News navigation">
+            <div class="news-side-block">
+              <label class="news-side-h" for="news-search">Search</label>
+              <input id="news-search" class="news-search" type="search" placeholder="Search the floor…" autocomplete="off" aria-label="Search articles">
+            </div>
+            <div class="news-side-block">
+              <p class="news-side-h">Topics</p>
+              <div class="news-filter" id="news-filter"></div>
+            </div>
+            <div class="news-side-block">
+              <div class="news-tabs" role="tablist" aria-label="Recent and most popular">
+                <button class="news-tab" type="button" data-tab="recent" aria-selected="true">Recent</button>
+                <button class="news-tab" type="button" data-tab="popular" aria-selected="false">Most Popular</button>
+              </div>
+              <ul class="news-poplist" id="news-recent"></ul>
+              <ul class="news-poplist" id="news-popular" hidden></ul>
+            </div>
+            <div class="news-side-block">
+              <p class="news-side-h">Explore</p>
+              <ul class="news-sitelinks">
+                <li><a href="../what-we-do.html">What We Do</a></li>
+                <li><a href="../led-volumes.html">LED Video Volumes</a></li>
+                <li><a href="../driving-plates.html">Driving Plates</a></li>
+                <li><a href="../frame-remapping.html">Frame Remapping</a></li>
+                <li><a href="../specialty-lighting.html">Specialty Lighting</a></li>
+                <li><a href="../turnkey-support.html">Turnkey Support</a></li>
+                <li><a href="../work.html">Our Work</a></li>
+                <li><a href="../our-tech.html">Our Tech</a></li>
+              </ul>
+            </div>
+            <div class="news-side-cta">
+              <p>Got a shot in mind?</p>
+              <a href="../contact.html" class="btn btn-cyan btn-sm">Tell us the shot →</a>
+            </div>
+          </aside>
+
+          <div class="article-main article-wrap">
         <a href="index.html" class="article-back">← All news</a>
         <header class="article-head" style="margin-top: var(--s-4);">
           <p class="article-kicker">Field notes</p>
@@ -100,6 +173,10 @@
           </div>
           <a href="../contact.html" class="btn btn-cyan">Contact →</a>
         </div>
+
+        <p class="article-keywords" id="article-keywords"></p>
+          </div><!-- /article-main -->
+        </div><!-- /news-layout -->
       </div>
     </section>
   </main>
@@ -131,6 +208,29 @@
         turnkey:{ label:'Turnkey Support',    url:'../turnkey-support.html',   svg:'<path d="M15 2a5.5 5.5 0 00-5.1 7.6L2 17.5V22h4.5v-2h2v-2h2v-2l1.4-1.4A5.5 5.5 0 1015 2zm1.8 5.5a1.5 1.5 0 110-3 1.5 1.5 0 010 3z"/>' }
       };
       function badges(list){ if(!list||!list.length) return ''; return list.map(function(k){ var s=SVC[k]; if(!s) return ''; return '<a class="svc-tag" href="'+s.url+'"><svg viewBox="0 0 24 24" aria-hidden="true">'+s.svg+'</svg>'+s.label+'</a>'; }).join(''); }
+      function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g,function(c){return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]);}); }
+      function fmtDate(d){ try { return new Date(d+'T00:00:00').toLocaleDateString('en-CA',{year:'numeric',month:'short',day:'numeric'}); } catch(e){ return esc(d); } }
+      function popItem(a){ var t=a.image?'<span class="pop-thumb"><img src="'+esc(a.image)+'" alt="" loading="lazy"></span>':''; return '<li><a href="'+esc(a.slug)+'.html">'+t+'<span class="pop-title">'+esc(a.title)+'</span></a></li>'; }
+      function buildSidebar(all, currentSlug){
+        var vis = all.filter(function(x){ return x.visible===true; });
+        vis.sort(function(p,q){ return (q.date||'').localeCompare(p.date||''); });
+        var fEl=document.getElementById('news-filter');
+        if(fEl){
+          var counts={}; vis.forEach(function(a){ (a.services||[]).forEach(function(k){ counts[k]=(counts[k]||0)+1; }); });
+          var html='<a href="index.html">All <span style="opacity:.45">'+vis.length+'</span></a>';
+          Object.keys(SVC).forEach(function(k){ if(counts[k]) html+='<a href="index.html?topic='+k+'">'+SVC[k].label+' <span style="opacity:.45">'+counts[k]+'</span></a>'; });
+          fEl.innerHTML=html;
+        }
+        var others=vis.filter(function(x){ return x.slug!==currentSlug; });
+        var rEl=document.getElementById('news-recent'), pEl=document.getElementById('news-popular');
+        var moreSoon='<li style="opacity:.6;padding:.6rem 0">More soon.</li>';
+        if(rEl) rEl.innerHTML=others.slice(0,5).map(popItem).join('')||moreSoon;
+        if(pEl){ var pop=others.filter(function(a){return a.popular!=null;}).sort(function(p,q){return (p.popular||99)-(q.popular||99);}); if(!pop.length) pop=others.slice(0,5); pEl.innerHTML=pop.slice(0,5).map(popItem).join('')||moreSoon; }
+        var tabs=document.querySelectorAll('.news-tab');
+        tabs.forEach(function(t){ t.addEventListener('click',function(){ tabs.forEach(function(x){x.setAttribute('aria-selected',x===t?'true':'false');}); var w=t.getAttribute('data-tab'); if(rEl) rEl.hidden=w!=='recent'; if(pEl) pEl.hidden=w!=='popular'; }); });
+        var sEl=document.getElementById('news-search');
+        if(sEl) sEl.addEventListener('keydown',function(e){ if(e.key==='Enter'){ var v=sEl.value.trim(); window.location='index.html'+(v?('?q='+encodeURIComponent(v)):''); } });
+      }
       var slug = document.body.getAttribute('data-slug');
       fetch('articles.json?cb=' + Date.now())
         .then(function (r) { return r.json(); })
@@ -140,6 +240,9 @@
           if (!hidden) {
             var bx = document.getElementById('article-badges');
             if (bx && a && a.services) bx.innerHTML = badges(a.services);
+            var kEl = document.getElementById('article-keywords');
+            if (kEl) kEl.innerHTML = '<b>Keywords:</b> ' + ((a && a.keywords && a.keywords.length) ? a.keywords.map(function(k){ return esc(k); }).join(', ') : '');
+            buildSidebar(d.articles || [], slug);
             return;
           }
           var m = document.querySelector('meta[data-cineva-robots]');
