@@ -83,17 +83,6 @@
       if (!pop.length) pop = ALL.slice(0, 5);
       popularEl.innerHTML = pop.slice(0, 5).map(popItem).join('');
     }
-    function wireTabs(){
-      var tabs = document.querySelectorAll('.news-tab');
-      tabs.forEach(function(t){
-        t.addEventListener('click', function(){
-          tabs.forEach(function(x){ x.setAttribute('aria-selected', x === t ? 'true' : 'false'); });
-          var which = t.getAttribute('data-tab');
-          recentEl.hidden = which !== 'recent';
-          popularEl.hidden = which !== 'popular';
-        });
-      });
-    }
 
     if (searchEl) searchEl.addEventListener('input', function(){ query = searchEl.value; renderFeed(); });
 
@@ -107,7 +96,6 @@
         try { var P = new URLSearchParams(location.search); var qp = P.get('q'); var tp = P.get('topic'); if (qp){ query = qp; if (searchEl) searchEl.value = qp; } if (tp && SVC[tp]) activeSvc = tp; } catch(e){}
         buildFilter();
         buildLists();
-        wireTabs();
         renderFeed();
       })
       .catch(function(){ empty.hidden = false; empty.textContent = 'Could not load articles.'; });
@@ -130,8 +118,6 @@
       var moreSoon = '<li style="opacity:.6;padding:.6rem 0">More soon.</li>';
       if (rEl) rEl.innerHTML = others.slice(0, 5).map(popItem).join('') || moreSoon;
       if (pEl){ var pop = others.filter(function(a){ return a.popular != null; }).sort(function(p, q){ return (p.popular || 99) - (q.popular || 99); }); if (!pop.length) pop = others.slice(0, 5); pEl.innerHTML = pop.slice(0, 5).map(popItem).join('') || moreSoon; }
-      var tabs = document.querySelectorAll('.news-tab');
-      tabs.forEach(function(t){ t.addEventListener('click', function(){ tabs.forEach(function(x){ x.setAttribute('aria-selected', x === t ? 'true' : 'false'); }); var w = t.getAttribute('data-tab'); if (rEl) rEl.hidden = w !== 'recent'; if (pEl) pEl.hidden = w !== 'popular'; }); });
       var sEl = document.getElementById('news-search');
       if (sEl) sEl.addEventListener('keydown', function(e){ if (e.key === 'Enter'){ var v = sEl.value.trim(); window.location = 'index.html' + (v ? ('?q=' + encodeURIComponent(v)) : ''); } });
     }
