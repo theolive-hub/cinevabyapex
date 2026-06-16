@@ -48,6 +48,11 @@
 .article-body a { color:var(--cyan,#38e1d6); }
 .article-body blockquote { margin:1.8rem 0; padding:.1rem 0 .1rem 1.3rem; border-left:3px solid #C9337A; font-size:1.25rem; line-height:1.4; font-weight:600; }
 .article-body ul, .article-body ol { line-height:1.75; margin:0 0 1.25rem 1.1rem; }
+.article-cta { clear:both; margin:2.6rem 0 1rem; padding:1.6rem 1.8rem; border:1px solid rgba(255,255,255,.12); border-left:3px solid var(--cyan,#38e1d6); border-radius:10px; background:rgba(56,225,214,.05); }
+.article-cta h2 { margin:0 0 .55rem; font-size:1.35rem; }
+.article-cta p { margin:0 0 1.1rem; opacity:.92; line-height:1.65; max-width:62ch; }
+.article-cta .article-cta-contact { font-family:'JetBrains Mono',monospace; font-size:.74rem; letter-spacing:.03em; text-transform:uppercase; opacity:.68; margin:.9rem 0 0; }
+.article-cta .article-cta-contact a { color:var(--cyan,#38e1d6); }
 .article-keywords { margin-top: var(--s-6,1.5rem); padding-top:1rem; border-top:1px solid rgba(255,255,255,.08); font-family:'JetBrains Mono',monospace; font-size:.72rem; letter-spacing:.03em; text-transform:uppercase; opacity:.7; }
 .article-keywords b { color:var(--cyan,#38e1d6); font-weight:700; margin-right:.4rem; }
 
