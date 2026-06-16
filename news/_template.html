@@ -48,62 +48,7 @@
   }
   </script>
 
-  <style>
-    /* ===== Cineva news article — editorial / online-paper (dark, scoped) ===== */
-    .article-wrap { max-width: none; }
-    .article-back { font-family:'JetBrains Mono', monospace; font-size:.8rem; color: var(--cyan,#38e1d6); text-decoration:none; }
-    .article-head { margin: var(--s-4,1rem) 0 var(--s-6,1.5rem); border-bottom:1px solid rgba(255,255,255,.10); padding-bottom: var(--s-6,1.5rem); }
-    .article-kicker { font-family:'JetBrains Mono',monospace; font-size:.74rem; letter-spacing:.1em; text-transform:uppercase; color:var(--cyan,#38e1d6); margin:0 0 .6rem; }
-    .article-head h1 { font-size:clamp(1.8rem,3.4vw,2.6rem); line-height:1.06; letter-spacing:-.01em; margin:0 0 .8rem; }
-    .article-byline { font-family:'JetBrains Mono',monospace; font-size:.76rem; letter-spacing:.03em; text-transform:uppercase; opacity:.64; margin:0 0 1rem; }
-    .svc-tags { display:flex; flex-wrap:wrap; gap:.4rem; }
-    .svc-tags:empty { display:none; }
-    .svc-tag { display:inline-flex; align-items:center; gap:.4rem; padding:.3rem .6rem .3rem .45rem; border:1px solid rgba(255,255,255,.13); border-radius:999px; text-decoration:none; color:inherit; font-family:'JetBrains Mono',monospace; font-size:.66rem; letter-spacing:.04em; text-transform:uppercase; transition:border-color .18s, background .18s, transform .18s; }
-    .svc-tag:hover { border-color:var(--cyan,#38e1d6); background:rgba(56,225,214,.07); transform:translateY(-1px); }
-    .svc-tag svg { width:15px; height:15px; flex:none; fill:#C9337A; }
-    .article-fig { float:left; width:clamp(200px,34%,305px); margin:.4rem 1.6rem 1rem 0; }
-    .article-fig img { width:100%; border-radius:6px; display:block; background:#111; }
-    .article-fig figcaption { font-family:'JetBrains Mono',monospace; font-size:.68rem; letter-spacing:.03em; text-transform:uppercase; opacity:.6; margin-top:.5rem; line-height:1.35; }
-    @media (max-width:600px){ .article-fig { float:none; width:100%; margin:0 0 1.2rem; } }
-    .article-body { font-size:1.06rem; display:flow-root; }
-    .article-body p { line-height: 1.75; margin: 0 0 1.25rem; }
-    .article-body > p:first-of-type { font-size:1.18rem; line-height:1.62; opacity:.96; }
-    .article-body h2 { margin: 2.2rem 0 .7rem; font-size:1.4rem; }
-    .article-body a { color:var(--cyan,#38e1d6); }
-    .article-body blockquote { margin:1.8rem 0; padding:.1rem 0 .1rem 1.3rem; border-left:3px solid #C9337A; font-size:1.25rem; line-height:1.4; font-weight:600; }
-    .article-body ul, .article-body ol { line-height:1.75; margin:0 0 1.25rem 1.1rem; }
-    /* ===== news sidebar (shared look with the index, so it persists on click) ===== */
-    .news-layout { display:grid; grid-template-columns:250px minmax(0,1fr); gap:clamp(1.5rem,3vw,3rem); align-items:start; margin-top:.5rem; }
-    .article-main { min-width:0; }
-    .news-sidebar { position:sticky; top:88px; display:flex; flex-direction:column; gap:1.7rem; }
-    .news-side-h { font-family:'JetBrains Mono',monospace; font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; opacity:.6; margin:0 0 .65rem; display:block; }
-    .news-search { width:100%; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.13); border-radius:6px; color:#DDDFE5; font-family:'Archivo',system-ui,sans-serif; font-size:.9rem; padding:.55rem .7rem; }
-    .news-search:focus { outline:none; border-color:var(--cyan,#38e1d6); }
-    .news-search::placeholder { color:rgba(221,223,229,.4); }
-    .news-filter { display:flex; flex-direction:column; gap:.15rem; }
-    .news-filter a { color:inherit; text-decoration:none; font-family:'JetBrains Mono',monospace; font-size:.74rem; letter-spacing:.02em; text-transform:uppercase; opacity:.7; padding:.32rem .15rem; display:flex; justify-content:space-between; gap:.5rem; transition:opacity .15s, color .15s; }
-    .news-filter a:hover { opacity:1; color:var(--cyan,#38e1d6); }
-    .news-tabs { display:flex; gap:1.1rem; border-bottom:1px solid rgba(255,255,255,.12); margin-bottom:.4rem; }
-    .news-tab { background:none; border:none; color:inherit; font-family:'JetBrains Mono',monospace; font-size:.67rem; letter-spacing:.09em; text-transform:uppercase; opacity:.55; padding:0 0 .5rem; cursor:pointer; border-bottom:2px solid transparent; margin-bottom:-1px; }
-    .news-tab[aria-selected="true"] { opacity:1; color:var(--cyan,#38e1d6); border-bottom-color:var(--cyan,#38e1d6); }
-    .news-poplist { list-style:none; margin:0; padding:0; }
-    .news-poplist li { border-bottom:1px solid rgba(255,255,255,.08); }
-    .news-poplist li:last-child { border-bottom:none; }
-    .news-poplist a { display:flex; gap:.7rem; align-items:flex-start; padding:.7rem 0; text-decoration:none; color:inherit; }
-    .news-poplist a:hover .pop-title { color:var(--cyan,#38e1d6); }
-    .pop-thumb { flex:none; width:56px; height:42px; border-radius:4px; overflow:hidden; background:#111; }
-    .pop-thumb img { width:100%; height:100%; object-fit:cover; display:block; }
-    .pop-title { font-size:.83rem; line-height:1.25; opacity:.9; }
-    .news-side-cta { border:1px solid rgba(255,255,255,.12); border-radius:8px; padding:1.1rem; background:rgba(56,225,214,.04); }
-    .news-side-cta p { margin:0 0 .7rem; font-size:.92rem; }
-    .article-keywords { margin-top: var(--s-6,1.5rem); padding-top:1rem; border-top:1px solid rgba(255,255,255,.08); font-family:'JetBrains Mono',monospace; font-size:.72rem; letter-spacing:.03em; text-transform:uppercase; opacity:.7; }
-    .article-keywords b { color:var(--cyan,#38e1d6); font-weight:700; margin-right:.4rem; }
-    @media (max-width:960px){
-      .news-layout { grid-template-columns:1fr; }
-      .news-sidebar { position:static; order:2; margin-top:2.4rem; padding-top:1.7rem; border-top:1px solid rgba(255,255,255,.1); }
-      .article-main { order:1; }
-    }
-  </style>
+  <link rel="stylesheet" href="news.css">
 </head>
 <body data-slug="{{SLUG}}">
   <a href="#main" class="skip-link">Skip to content</a>
@@ -198,66 +143,6 @@
   <script src="../app.js" defer></script>
   <!-- Visibility guard: if this slug is hidden in articles.json, force noindex and hide the body.
        Belt-and-suspenders behind the static robots flag + sitemap removal the admin page also does. -->
-  <script>
-    (function () {
-      var SVC = {
-        led:    { label:'LED Volumes',       url:'../led-volumes.html',       svg:'<rect x="2" y="2" width="6" height="6"/><rect x="10" y="2" width="6" height="6"/><rect x="18" y="2" width="4" height="6"/><rect x="2" y="10" width="6" height="6"/><rect x="10" y="10" width="6" height="6"/><rect x="18" y="10" width="4" height="6"/><rect x="2" y="18" width="6" height="4"/><rect x="10" y="18" width="6" height="4"/><rect x="18" y="18" width="4" height="4"/>' },
-        plates: { label:'Driving Plates',     url:'../driving-plates.html',    svg:'<path d="M5 11l2-5h10l2 5v6h-2v-2H7v2H5v-6zm2.4-1h9.2l-1.2-3H8.6L7.4 10zM8 15a1.2 1.2 0 100-2.4A1.2 1.2 0 008 15zm8 0a1.2 1.2 0 100-2.4 1.2 1.2 0 000 2.4z"/>' },
-        server: { label:'Server Playback',    url:'../server-playback.html',   svg:'<rect x="3" y="3" width="18" height="5" rx="0.6"/><rect x="3" y="10" width="18" height="5" rx="0.6"/><rect x="3" y="17" width="18" height="4" rx="0.6"/>' },
-        light:  { label:'Specialty Lighting', url:'../specialty-lighting.html', svg:'<path d="M12 2a7 7 0 00-4.2 12.6V18h8.4v-3.4A7 7 0 0012 2zM9 20h6v2H9z"/>' },
-        remap:  { label:'Frame Remapping',    url:'../frame-remapping.html',   svg:'<rect x="2" y="5" width="13" height="10" opacity="0.45"/><rect x="9" y="9" width="13" height="10"/>' },
-        turnkey:{ label:'Turnkey Support',    url:'../turnkey-support.html',   svg:'<path d="M15 2a5.5 5.5 0 00-5.1 7.6L2 17.5V22h4.5v-2h2v-2h2v-2l1.4-1.4A5.5 5.5 0 1015 2zm1.8 5.5a1.5 1.5 0 110-3 1.5 1.5 0 010 3z"/>' }
-      };
-      function badges(list){ if(!list||!list.length) return ''; return list.map(function(k){ var s=SVC[k]; if(!s) return ''; return '<a class="svc-tag" href="'+s.url+'"><svg viewBox="0 0 24 24" aria-hidden="true">'+s.svg+'</svg>'+s.label+'</a>'; }).join(''); }
-      function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g,function(c){return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]);}); }
-      function fmtDate(d){ try { return new Date(d+'T00:00:00').toLocaleDateString('en-CA',{year:'numeric',month:'short',day:'numeric'}); } catch(e){ return esc(d); } }
-      function popItem(a){ var t=a.image?'<span class="pop-thumb"><img src="'+esc(a.image)+'" alt="" loading="lazy"></span>':''; return '<li><a href="'+esc(a.slug)+'.html">'+t+'<span class="pop-title">'+esc(a.title)+'</span></a></li>'; }
-      function buildSidebar(all, currentSlug){
-        var vis = all.filter(function(x){ return x.visible===true; });
-        vis.sort(function(p,q){ return (q.date||'').localeCompare(p.date||''); });
-        var fEl=document.getElementById('news-filter');
-        if(fEl){
-          var counts={}; vis.forEach(function(a){ (a.services||[]).forEach(function(k){ counts[k]=(counts[k]||0)+1; }); });
-          var html='<a href="index.html">All <span style="opacity:.45">'+vis.length+'</span></a>';
-          Object.keys(SVC).forEach(function(k){ if(counts[k]) html+='<a href="index.html?topic='+k+'">'+SVC[k].label+' <span style="opacity:.45">'+counts[k]+'</span></a>'; });
-          fEl.innerHTML=html;
-        }
-        var others=vis.filter(function(x){ return x.slug!==currentSlug; });
-        var rEl=document.getElementById('news-recent'), pEl=document.getElementById('news-popular');
-        var moreSoon='<li style="opacity:.6;padding:.6rem 0">More soon.</li>';
-        if(rEl) rEl.innerHTML=others.slice(0,5).map(popItem).join('')||moreSoon;
-        if(pEl){ var pop=others.filter(function(a){return a.popular!=null;}).sort(function(p,q){return (p.popular||99)-(q.popular||99);}); if(!pop.length) pop=others.slice(0,5); pEl.innerHTML=pop.slice(0,5).map(popItem).join('')||moreSoon; }
-        var tabs=document.querySelectorAll('.news-tab');
-        tabs.forEach(function(t){ t.addEventListener('click',function(){ tabs.forEach(function(x){x.setAttribute('aria-selected',x===t?'true':'false');}); var w=t.getAttribute('data-tab'); if(rEl) rEl.hidden=w!=='recent'; if(pEl) pEl.hidden=w!=='popular'; }); });
-        var sEl=document.getElementById('news-search');
-        if(sEl) sEl.addEventListener('keydown',function(e){ if(e.key==='Enter'){ var v=sEl.value.trim(); window.location='index.html'+(v?('?q='+encodeURIComponent(v)):''); } });
-      }
-      var slug = document.body.getAttribute('data-slug');
-      fetch('articles.json?cb=' + Date.now())
-        .then(function (r) { return r.json(); })
-        .then(function (d) {
-          var a = (d.articles || []).find(function (x) { return x.slug === slug; });
-          var hidden = !a || a.visible !== true;
-          if (!hidden) {
-            var bx = document.getElementById('article-badges');
-            if (bx && a && a.services) bx.innerHTML = badges(a.services);
-            var kEl = document.getElementById('article-keywords');
-            if (kEl) kEl.innerHTML = '<b>Keywords:</b> ' + ((a && a.keywords && a.keywords.length) ? a.keywords.map(function(k){ return esc(k); }).join(', ') : '');
-            buildSidebar(d.articles || [], slug);
-            return;
-          }
-          var m = document.querySelector('meta[data-cineva-robots]');
-          if (m) { m.setAttribute('content', 'noindex,nofollow'); }
-          else { var nm = document.createElement('meta'); nm.name = 'robots'; nm.setAttribute('content', 'noindex,nofollow'); nm.setAttribute('data-cineva-robots', ''); document.head.appendChild(nm); }
-          var main = document.getElementById('main');
-          if (main) {
-            main.innerHTML = '<section class="section"><div class="container"><p class="eyebrow">Unavailable</p>' +
-              '<h1 class="display-section">This article isn\'t available right now<span class="pt">.</span></h1>' +
-              '<p class="body-lg" style="margin-top:var(--s-4);max-width:60ch;">It may have been unpublished. Head back to <a href="index.html">the news index</a> for current pieces.</p></div></section>';
-          }
-        })
-        .catch(function () { /* on error, leave the page as-is */ });
-    })();
-  </script>
+  <script src="news.js" defer></script>
 </body>
 </html>

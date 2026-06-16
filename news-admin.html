@@ -158,8 +158,8 @@
   function saveCfg(includeToken) {
     var c = cfg();
     var data = { owner: c.owner, repo: c.repo, branch: c.branch, sitepath: c.sitepath, sitebase: c.sitebase };
-    if (includeToken) data.token = c.token;
     try { localStorage.setItem(LS, JSON.stringify(data)); } catch (e) {}
+    try { if (includeToken && c.token) sessionStorage.setItem(LS + ":tok", c.token); } catch (e) {}
   }
 
   function loadCfg() {
@@ -170,8 +170,8 @@
       $("branch").value = d.branch || "main";
       if (d.sitepath != null) $("sitepath").value = d.sitepath;
       $("sitebase").value = d.sitebase || "https://cinevabyapex.com";
-      if (d.token) $("token").value = d.token;
     } catch (e) {}
+    try { var t = sessionStorage.getItem(LS + ":tok"); if (t) $("token").value = t; } catch (e) {}
   }
 
   // ---------- GitHub API ----------
@@ -360,7 +360,8 @@
   $("clearTokBtn").addEventListener("click", function () {
     $("token").value = "";
     try { var d = JSON.parse(localStorage.getItem(LS) || "{}"); delete d.token; localStorage.setItem(LS, JSON.stringify(d)); } catch (e) {}
-    log("Token forgotten from this browser.", null);
+    try { sessionStorage.removeItem(LS + ":tok"); } catch (e) {}
+    log("Token forgotten.", null);
   });
   $("publishBtn").addEventListener("click", doPublish);
   $("revertBtn").addEventListener("click", doRevert);

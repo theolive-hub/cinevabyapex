@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>News &amp; Field Notes · Cineva by Apex Sound &amp; Light</title>
-  <meta name="description" content="Notes from the floor — LED volumes, driving plates, server playback, and specialty lighting for Toronto film and TV. Practical reads from the Cineva crew.">
+  <meta name="description" content="Practical reads on LED volumes, driving plates, frame remapping, and specialty lighting for Toronto film and TV, from the crew that preps and runs them.">
   <link rel="canonical" href="https://cinevabyapex.com/news/">
   <link rel="icon" type="image/svg+xml" href="../assets/cineva-mark.svg">
 
@@ -12,13 +12,13 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Cineva by Apex Sound &amp; Light">
   <meta property="og:title" content="News &amp; Field Notes · Cineva by Apex Sound &amp; Light">
-  <meta property="og:description" content="Notes from the floor — practical reads from the Cineva crew on set-facing AV for Toronto film and TV.">
+  <meta property="og:description" content="Practical reads on set-facing AV for Toronto film and TV, from the crew that preps and runs them.">
   <meta property="og:image" content="https://cinevabyapex.com/assets/og-image.png">
   <meta property="og:url" content="https://cinevabyapex.com/news/">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="News &amp; Field Notes · Cineva by Apex Sound &amp; Light">
-  <meta name="twitter:description" content="Notes from the floor — practical reads from the Cineva crew on set-facing AV for Toronto film and TV.">
+  <meta name="twitter:description" content="Practical reads on set-facing AV for Toronto film and TV, from the crew that preps and runs them.">
   <meta name="twitter:image" content="https://cinevabyapex.com/assets/og-image.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,74 +27,7 @@
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap"></noscript>
   <link rel="stylesheet" href="../styles.css">
 
-  <style>
-    /* ===== News: editorial / online-paper layout (dark, scoped) ===== */
-    .news-mag { --mag:#C9337A; }
-    .news-hero { position:relative; min-height:clamp(220px,26vw,360px); overflow:hidden; }
-    .news-hero-bg { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 82%; }
-    .news-hero-scrim { position:absolute; inset:0; background:linear-gradient(180deg,rgba(8,9,11,0) 55%,rgba(8,9,11,.6) 100%); }
-    /* pull the content panel up over the hero (more overlap than other pages) */
-    .news-mag .section { position:relative; z-index:2; margin-top:clamp(-8rem,-10vw,-5rem); background:var(--ink,#1C1D20); border-top:none; border-radius:16px 16px 0 0; }
-
-    /* service badges */
-    .svc-tags { display:flex; flex-wrap:wrap; gap:.4rem; }
-    .svc-tag { display:inline-flex; align-items:center; gap:.4rem; padding:.3rem .6rem .3rem .45rem; border:1px solid rgba(255,255,255,.13); border-radius:999px; text-decoration:none; color:inherit; font-family:'JetBrains Mono',monospace; font-size:.66rem; letter-spacing:.04em; text-transform:uppercase; transition:border-color .18s, background .18s, transform .18s; }
-    .svc-tag:hover { border-color:var(--cyan,#38e1d6); background:rgba(56,225,214,.07); transform:translateY(-1px); }
-    .svc-tag svg { width:15px; height:15px; flex:none; fill:#C9337A; }
-
-    /* article rows (uniform list) */
-    .news-river { display:flex; flex-direction:column; border-top:1px solid rgba(255,255,255,.10); }
-    .news-row { display:grid; grid-template-columns:210px 1fr; gap:1.5rem; padding:1.7rem 0; border-bottom:1px solid rgba(255,255,255,.10); }
-    .news-row-media { display:block; aspect-ratio:16/10; border-radius:5px; overflow:hidden; background:#111; }
-    .news-row-media img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .45s ease; }
-    .news-row-media:hover img { transform:scale(1.03); }
-    .news-row h3 { font-size:1.3rem; line-height:1.18; margin:.35rem 0 .4rem; }
-    .news-row h3 a { color:inherit; text-decoration:none; }
-    .news-row h3 a:hover { color:var(--cyan,#38e1d6); }
-    .news-row .dek { opacity:.8; line-height:1.55; margin:0 0 .75rem; max-width:64ch; }
-    .news-row .row-meta { font-family:'JetBrains Mono',monospace; font-size:.7rem; letter-spacing:.04em; text-transform:uppercase; opacity:.62; display:flex; gap:.6rem; }
-    .news-row .row-meta .cyan { color:var(--cyan,#38e1d6); }
-    .news-empty { margin-top:2rem; opacity:.7; font-family:'JetBrains Mono', monospace; }
-
-    /* ===== sidebar layout ===== */
-    .news-layout { display:grid; grid-template-columns:250px 1fr; gap:clamp(1.5rem,3vw,3rem); align-items:start; margin-top:.5rem; }
-    .news-feed { min-width:0; }
-    .news-sidebar { position:sticky; top:88px; display:flex; flex-direction:column; gap:1.7rem; }
-    .news-side-h { font-family:'JetBrains Mono',monospace; font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; opacity:.6; margin:0 0 .65rem; display:block; }
-    .news-search { width:100%; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.13); border-radius:6px; color:#DDDFE5; font-family:'Archivo',system-ui,sans-serif; font-size:.9rem; padding:.55rem .7rem; }
-    .news-search:focus { outline:none; border-color:var(--cyan,#38e1d6); }
-    .news-search::placeholder { color:rgba(221,223,229,.4); }
-    .news-filter { display:flex; flex-direction:column; gap:.15rem; }
-    .news-filter button { text-align:left; background:none; border:none; color:inherit; font-family:'JetBrains Mono',monospace; font-size:.74rem; letter-spacing:.02em; text-transform:uppercase; opacity:.7; padding:.32rem .15rem; cursor:pointer; display:flex; justify-content:space-between; gap:.5rem; border-radius:4px; transition:opacity .15s, color .15s; }
-    .news-filter button:hover { opacity:1; color:var(--cyan,#38e1d6); }
-    .news-filter button[aria-pressed="true"] { opacity:1; color:var(--cyan,#38e1d6); font-weight:700; }
-    .news-filter .cnt { opacity:.45; }
-    /* Recent / Most Popular tabs */
-    .news-tabs { display:flex; gap:1.1rem; border-bottom:1px solid rgba(255,255,255,.12); margin-bottom:.4rem; }
-    .news-tab { background:none; border:none; color:inherit; font-family:'JetBrains Mono',monospace; font-size:.67rem; letter-spacing:.09em; text-transform:uppercase; opacity:.55; padding:0 0 .5rem; cursor:pointer; border-bottom:2px solid transparent; margin-bottom:-1px; }
-    .news-tab:hover { opacity:.85; }
-    .news-tab[aria-selected="true"] { opacity:1; color:var(--cyan,#38e1d6); border-bottom-color:var(--cyan,#38e1d6); }
-    .news-poplist { list-style:none; margin:0; padding:0; }
-    .news-poplist li { border-bottom:1px solid rgba(255,255,255,.08); }
-    .news-poplist li:last-child { border-bottom:none; }
-    .news-poplist a { display:flex; gap:.7rem; align-items:flex-start; padding:.7rem 0; text-decoration:none; color:inherit; }
-    .news-poplist a:hover .pop-title { color:var(--cyan,#38e1d6); }
-    .pop-thumb { flex:none; width:56px; height:42px; border-radius:4px; overflow:hidden; background:#111; }
-    .pop-thumb img { width:100%; height:100%; object-fit:cover; display:block; }
-    .pop-title { font-size:.83rem; line-height:1.25; opacity:.9; }
-    .news-side-cta { border:1px solid rgba(255,255,255,.12); border-radius:8px; padding:1.1rem; background:rgba(56,225,214,.04); }
-    .news-side-cta p { margin:0 0 .7rem; font-size:.92rem; }
-
-    @media (max-width:960px){
-      .news-layout { grid-template-columns:1fr; }
-      .news-feed { order:1; }
-      .news-sidebar { position:static; order:2; margin-top:2.2rem; padding-top:1.7rem; border-top:1px solid rgba(255,255,255,.1); }
-    }
-    @media (max-width:760px){
-      .news-row { grid-template-columns:120px 1fr; gap:1rem; padding:1.2rem 0; }
-      .news-row .dek { display:none; }
-    }
-  </style>
+  <link rel="stylesheet" href="news.css">
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to content</a>
@@ -195,127 +128,6 @@
   </footer>
 
   <script src="../app.js" defer></script>
-  <script>
-    // Editorial layout (lead + river) with a working sidebar: search, topic filter, recent.
-    (function () {
-      var riverEl   = document.getElementById('news-river');
-      var empty     = document.getElementById('news-empty');
-      var updatedEl = document.getElementById('news-updated');
-      var filterEl  = document.getElementById('news-filter');
-      var recentEl  = document.getElementById('news-recent');
-      var popularEl = document.getElementById('news-popular');
-      var searchEl  = document.getElementById('news-search');
-
-      var SVC = {
-        led:    { label:'LED Volumes',       url:'../led-volumes.html',       svg:'<rect x="2" y="2" width="6" height="6"/><rect x="10" y="2" width="6" height="6"/><rect x="18" y="2" width="4" height="6"/><rect x="2" y="10" width="6" height="6"/><rect x="10" y="10" width="6" height="6"/><rect x="18" y="10" width="4" height="6"/><rect x="2" y="18" width="6" height="4"/><rect x="10" y="18" width="6" height="4"/><rect x="18" y="18" width="4" height="4"/>' },
-        plates: { label:'Driving Plates',     url:'../driving-plates.html',    svg:'<path d="M5 11l2-5h10l2 5v6h-2v-2H7v2H5v-6zm2.4-1h9.2l-1.2-3H8.6L7.4 10zM8 15a1.2 1.2 0 100-2.4A1.2 1.2 0 008 15zm8 0a1.2 1.2 0 100-2.4 1.2 1.2 0 000 2.4z"/>' },
-        server: { label:'Server Playback',    url:'../server-playback.html',   svg:'<rect x="3" y="3" width="18" height="5" rx="0.6"/><rect x="3" y="10" width="18" height="5" rx="0.6"/><rect x="3" y="17" width="18" height="4" rx="0.6"/>' },
-        light:  { label:'Specialty Lighting', url:'../specialty-lighting.html', svg:'<path d="M12 2a7 7 0 00-4.2 12.6V18h8.4v-3.4A7 7 0 0012 2zM9 20h6v2H9z"/>' },
-        remap:  { label:'Frame Remapping',    url:'../frame-remapping.html',   svg:'<rect x="2" y="5" width="13" height="10" opacity="0.45"/><rect x="9" y="9" width="13" height="10"/>' },
-        turnkey:{ label:'Turnkey Support',    url:'../turnkey-support.html',   svg:'<path d="M15 2a5.5 5.5 0 00-5.1 7.6L2 17.5V22h4.5v-2h2v-2h2v-2l1.4-1.4A5.5 5.5 0 1015 2zm1.8 5.5a1.5 1.5 0 110-3 1.5 1.5 0 010 3z"/>' }
-      };
-      function esc(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){ return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]); }); }
-      function fmtDate(d){ try { return new Date(d + 'T00:00:00').toLocaleDateString('en-CA', { year:'numeric', month:'short', day:'numeric' }); } catch(e){ return esc(d); } }
-      function badges(list){
-        if (!list || !list.length) return '';
-        var html = list.map(function(k){ var s = SVC[k]; if(!s) return ''; return '<a class="svc-tag" href="' + s.url + '"><svg viewBox="0 0 24 24" aria-hidden="true">' + s.svg + '</svg>' + s.label + '</a>'; }).join('');
-        return '<div class="svc-tags">' + html + '</div>';
-      }
-
-      var ALL = [];          // all visible articles, newest first
-      var activeSvc = 'all'; // active topic filter
-      var query = '';        // search text
-
-      function currentList(){
-        var q = query.trim().toLowerCase();
-        return ALL.filter(function(a){
-          var okSvc = activeSvc === 'all' || (a.services || []).indexOf(activeSvc) >= 0;
-          var okQ = !q || ((a.title || '') + ' ' + (a.dek || '') + ' ' + (a.tag || '')).toLowerCase().indexOf(q) >= 0;
-          return okSvc && okQ;
-        });
-      }
-
-      function rowHTML(a){
-        var media = a.image ? '<a class="news-row-media" href="' + esc(a.slug) + '.html"><img src="' + esc(a.image) + '" alt="" loading="lazy"></a>' : '<span></span>';
-        return '<article class="news-row">' + media +
-          '<div>' +
-            '<div class="row-meta"><span class="cyan">' + esc(a.tag || 'News') + '</span><span>' + fmtDate(a.date) + '</span></div>' +
-            '<h3><a href="' + esc(a.slug) + '.html">' + esc(a.title) + '</a></h3>' +
-            '<p class="dek">' + esc(a.dek || '') + '</p>' +
-            badges(a.services) +
-          '</div></article>';
-      }
-
-      function renderFeed(){
-        var list = currentList();
-        if (!list.length){
-          riverEl.innerHTML = '';
-          empty.hidden = false;
-          empty.textContent = ALL.length ? 'Nothing matches that. Try another topic or clear the search.' : 'No articles published yet. Check back soon.';
-          return;
-        }
-        empty.hidden = true;
-        riverEl.innerHTML = list.map(rowHTML).join('');
-      }
-
-      function buildFilter(){
-        var counts = {};
-        ALL.forEach(function(a){ (a.services || []).forEach(function(k){ counts[k] = (counts[k] || 0) + 1; }); });
-        var html = '<button type="button" data-svc="all" aria-pressed="' + (activeSvc === 'all' ? 'true' : 'false') + '">All <span class="cnt">' + ALL.length + '</span></button>';
-        Object.keys(SVC).forEach(function(k){
-          if (counts[k]) html += '<button type="button" data-svc="' + k + '" aria-pressed="' + (activeSvc === k ? 'true' : 'false') + '">' + SVC[k].label + ' <span class="cnt">' + counts[k] + '</span></button>';
-        });
-        filterEl.innerHTML = html;
-        filterEl.querySelectorAll('button').forEach(function(b){
-          b.addEventListener('click', function(){
-            activeSvc = b.getAttribute('data-svc');
-            filterEl.querySelectorAll('button').forEach(function(x){ x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
-            renderFeed();
-          });
-        });
-      }
-
-      function popItem(a){
-        var thumb = a.image ? '<span class="pop-thumb"><img src="' + esc(a.image) + '" alt="" loading="lazy"></span>' : '';
-        return '<li><a href="' + esc(a.slug) + '.html">' + thumb + '<span class="pop-title">' + esc(a.title) + '</span></a></li>';
-      }
-      function buildLists(){
-        recentEl.innerHTML = ALL.slice(0, 5).map(popItem).join('');
-        var pop = ALL.filter(function(a){ return a.popular != null; })
-                     .sort(function(p, q){ return (p.popular || 99) - (q.popular || 99); });
-        if (!pop.length) pop = ALL.slice(0, 5); // fallback when nothing is flagged popular yet
-        popularEl.innerHTML = pop.slice(0, 5).map(popItem).join('');
-      }
-      function wireTabs(){
-        var tabs = document.querySelectorAll('.news-tab');
-        tabs.forEach(function(t){
-          t.addEventListener('click', function(){
-            tabs.forEach(function(x){ x.setAttribute('aria-selected', x === t ? 'true' : 'false'); });
-            var which = t.getAttribute('data-tab');
-            recentEl.hidden = which !== 'recent';
-            popularEl.hidden = which !== 'popular';
-          });
-        });
-      }
-
-      if (searchEl) searchEl.addEventListener('input', function(){ query = searchEl.value; renderFeed(); });
-
-      fetch('articles.json?cb=' + Date.now())
-        .then(function(r){ return r.json(); })
-        .then(function(data){
-          if (updatedEl && data.updated) updatedEl.textContent = 'Updated ' + fmtDate(data.updated);
-          ALL = (data.articles || []).filter(function(a){ return a.visible === true; });
-          ALL.sort(function(a,b){ return (b.date || '').localeCompare(a.date || ''); });
-          if (!ALL.length){ empty.hidden = false; return; }
-          // Deep links from an article's sidebar: ?q= prefills search, ?topic= preselects a filter.
-          try { var P = new URLSearchParams(location.search); var qp = P.get('q'); var tp = P.get('topic'); if (qp){ query = qp; if (searchEl) searchEl.value = qp; } if (tp && SVC[tp]) activeSvc = tp; } catch(e){}
-          buildFilter();
-          buildLists();
-          wireTabs();
-          renderFeed();
-        })
-        .catch(function(){ empty.hidden = false; empty.textContent = 'Could not load articles.'; });
-    })();
-  </script>
+  <script src="news.js" defer></script>
 </body>
 </html>

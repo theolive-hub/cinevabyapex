@@ -39,62 +39,7 @@
   }
   </script>
 
-  <style>
-    /* ===== Cineva news article — editorial / online-paper (dark, scoped) ===== */
-    .article-wrap { max-width: none; }
-    .article-back { font-family:'JetBrains Mono', monospace; font-size:.8rem; color: var(--cyan,#38e1d6); text-decoration:none; }
-    .article-head { margin: var(--s-4,1rem) 0 var(--s-6,1.5rem); border-bottom:1px solid rgba(255,255,255,.10); padding-bottom: var(--s-6,1.5rem); }
-    .article-kicker { font-family:'JetBrains Mono',monospace; font-size:.74rem; letter-spacing:.1em; text-transform:uppercase; color:var(--cyan,#38e1d6); margin:0 0 .6rem; }
-    .article-head h1 { font-size:clamp(1.8rem,3.4vw,2.6rem); line-height:1.06; letter-spacing:-.01em; margin:0 0 .8rem; }
-    .article-byline { font-family:'JetBrains Mono',monospace; font-size:.76rem; letter-spacing:.03em; text-transform:uppercase; opacity:.64; margin:0 0 1rem; }
-    .svc-tags { display:flex; flex-wrap:wrap; gap:.4rem; }
-    .svc-tags:empty { display:none; }
-    .svc-tag { display:inline-flex; align-items:center; gap:.4rem; padding:.3rem .6rem .3rem .45rem; border:1px solid rgba(255,255,255,.13); border-radius:999px; text-decoration:none; color:inherit; font-family:'JetBrains Mono',monospace; font-size:.66rem; letter-spacing:.04em; text-transform:uppercase; transition:border-color .18s, background .18s, transform .18s; }
-    .svc-tag:hover { border-color:var(--cyan,#38e1d6); background:rgba(56,225,214,.07); transform:translateY(-1px); }
-    .svc-tag svg { width:15px; height:15px; flex:none; fill:#C9337A; }
-    .article-fig { float:left; width:clamp(200px,34%,305px); margin:.4rem 1.6rem 1rem 0; }
-    .article-fig img { width:100%; border-radius:6px; display:block; background:#111; }
-    .article-fig figcaption { font-family:'JetBrains Mono',monospace; font-size:.68rem; letter-spacing:.03em; text-transform:uppercase; opacity:.6; margin-top:.5rem; line-height:1.35; }
-    @media (max-width:600px){ .article-fig { float:none; width:100%; margin:0 0 1.2rem; } }
-    .article-body { font-size:1.06rem; display:flow-root; }
-    .article-body p { line-height: 1.75; margin: 0 0 1.25rem; }
-    .article-body > p:first-of-type { font-size:1.18rem; line-height:1.62; opacity:.96; }
-    .article-body h2 { margin: 2.2rem 0 .7rem; font-size:1.4rem; }
-    .article-body a { color:var(--cyan,#38e1d6); }
-    .article-body blockquote { margin:1.8rem 0; padding:.1rem 0 .1rem 1.3rem; border-left:3px solid #C9337A; font-size:1.25rem; line-height:1.4; font-weight:600; }
-    .article-body ul, .article-body ol { line-height:1.75; margin:0 0 1.25rem 1.1rem; }
-    /* ===== news sidebar (shared look with the index, so it persists on click) ===== */
-    .news-layout { display:grid; grid-template-columns:250px minmax(0,1fr); gap:clamp(1.5rem,3vw,3rem); align-items:start; margin-top:.5rem; }
-    .article-main { min-width:0; }
-    .news-sidebar { position:sticky; top:88px; display:flex; flex-direction:column; gap:1.7rem; }
-    .news-side-h { font-family:'JetBrains Mono',monospace; font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; opacity:.6; margin:0 0 .65rem; display:block; }
-    .news-search { width:100%; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.13); border-radius:6px; color:#DDDFE5; font-family:'Archivo',system-ui,sans-serif; font-size:.9rem; padding:.55rem .7rem; }
-    .news-search:focus { outline:none; border-color:var(--cyan,#38e1d6); }
-    .news-search::placeholder { color:rgba(221,223,229,.4); }
-    .news-filter { display:flex; flex-direction:column; gap:.15rem; }
-    .news-filter a { color:inherit; text-decoration:none; font-family:'JetBrains Mono',monospace; font-size:.74rem; letter-spacing:.02em; text-transform:uppercase; opacity:.7; padding:.32rem .15rem; display:flex; justify-content:space-between; gap:.5rem; transition:opacity .15s, color .15s; }
-    .news-filter a:hover { opacity:1; color:var(--cyan,#38e1d6); }
-    .news-tabs { display:flex; gap:1.1rem; border-bottom:1px solid rgba(255,255,255,.12); margin-bottom:.4rem; }
-    .news-tab { background:none; border:none; color:inherit; font-family:'JetBrains Mono',monospace; font-size:.67rem; letter-spacing:.09em; text-transform:uppercase; opacity:.55; padding:0 0 .5rem; cursor:pointer; border-bottom:2px solid transparent; margin-bottom:-1px; }
-    .news-tab[aria-selected="true"] { opacity:1; color:var(--cyan,#38e1d6); border-bottom-color:var(--cyan,#38e1d6); }
-    .news-poplist { list-style:none; margin:0; padding:0; }
-    .news-poplist li { border-bottom:1px solid rgba(255,255,255,.08); }
-    .news-poplist li:last-child { border-bottom:none; }
-    .news-poplist a { display:flex; gap:.7rem; align-items:flex-start; padding:.7rem 0; text-decoration:none; color:inherit; }
-    .news-poplist a:hover .pop-title { color:var(--cyan,#38e1d6); }
-    .pop-thumb { flex:none; width:56px; height:42px; border-radius:4px; overflow:hidden; background:#111; }
-    .pop-thumb img { width:100%; height:100%; object-fit:cover; display:block; }
-    .pop-title { font-size:.83rem; line-height:1.25; opacity:.9; }
-    .news-side-cta { border:1px solid rgba(255,255,255,.12); border-radius:8px; padding:1.1rem; background:rgba(56,225,214,.04); }
-    .news-side-cta p { margin:0 0 .7rem; font-size:.92rem; }
-    .article-keywords { margin-top: var(--s-6,1.5rem); padding-top:1rem; border-top:1px solid rgba(255,255,255,.08); font-family:'JetBrains Mono',monospace; font-size:.72rem; letter-spacing:.03em; text-transform:uppercase; opacity:.7; }
-    .article-keywords b { color:var(--cyan,#38e1d6); font-weight:700; margin-right:.4rem; }
-    @media (max-width:960px){
-      .news-layout { grid-template-columns:1fr; }
-      .news-sidebar { position:static; order:2; margin-top:2.4rem; padding-top:1.7rem; border-top:1px solid rgba(255,255,255,.1); }
-      .article-main { order:1; }
-    }
-  </style>
+  <link rel="stylesheet" href="news.css">
 </head>
 <body data-slug="led-volume-prep-checklist">
   <a href="#main" class="skip-link">Skip to content</a>
@@ -157,22 +102,36 @@
         </header>
         <div class="article-body">
           <figure class="article-fig">
-            <img src="../assets/ledvolumes.webp" alt="A Cineva LED volume being prepped in the warehouse" loading="lazy">
-            <figcaption>An LED volume on the prep floor in Pickering.</figcaption>
+            <img src="assets/prep-uniformity-check.webp" alt="An LED video wall tile on a calibration bench during a uniformity check" loading="lazy" width="1408" height="768">
+            <figcaption>Every tile gets a uniformity check on the bench before it is cased.</figcaption>
           </figure>
-          <p>An LED volume is only as good as the prep behind it. By the time a wall lands on your stage, the difference between a fast first setup and a lost morning was decided days earlier, in the warehouse. Here is the pass every volume order goes through before it leaves Pickering.</p>
+          <p>A wall that powers on in the rental yard tells you almost nothing about whether it will hold for a three-day shoot. Lit and ready are two different states, and the gap between them is where shoot days go to die. By the time a volume from Cineva by Apex Sound &amp; Light lands on your stage, that gap has already been closed in the warehouse. Here is the pass every volume order goes through before it leaves Pickering.</p>
 
-          <h2>Panels and spares</h2>
-          <p>Every tile is powered up and run through a uniformity check. We pull and replace anything that drifts, then pack a spare count sized to the wall, not a round number. If a tile fails on day three, the replacement is already in the case and already matched.</p>
+          <p>Most volume problems on set are not exotic. A tile reads half a stop hot under the key camera. A processor pulls a firmware update over Wi-Fi overnight and quietly changes its scan behavior. A spare panel turns out to be from a different production batch and refuses to color-match. None of these are dramatic on their own. All of them stop a camera, and they stop it at the worst possible time, with a full crew standing on the clock.</p>
 
-          <h2>Processing and firmware</h2>
-          <p>Processors are loaded with the firmware and config the show calls for, and we lock the versions so nothing auto-updates on set. Color profiles are set against the camera and frame rate you told us about, not a default. That conversation happens before the truck rolls, not on the floor.</p>
+          <p>The answer is not heroics on the floor. It is prep discipline that front-loads every one of those failure points into the warehouse, where there is time to catch them and no day rate burning while you do. That discipline is a fixed pass, run on every order. This is what is actually in it.</p>
 
-          <h2>Cable, power, and labels</h2>
-          <p>Data and power runs are counted, tested, and dressed. Cases are tagged so the crew can read the order the way it needs to come together: first wall up, then the next, in the sequence your setup actually follows.</p>
+          <h2>Panels: uniformity before the wall exists</h2>
+          <p>Every tile gets uncased, powered, and run through a uniformity check on the bench. Not a glance to confirm it lights. A check against a known baseline for brightness and color, panel by panel.</p>
+          <p>LED tiles drift. They drift with age, with thermal cycling, and sometimes straight out of a production run. A module sitting a few percent hot, or crept off its neutral point, will read on camera even when it looks fine to the eye in a bright shop. Across a wall of hundreds of tiles, one drifter becomes a seam you fight in the grade. The bench is where you find it. We pull anything that wanders off baseline and replace it before it is ever cased for your order.</p>
+          <p>The same logic drives how we handle spares, and it is where generic prep usually falls short. A lot of vendors pack a round number of spares because round numbers are easy. We size the spare count to the actual dimensions of your wall, and we pull those spares from the same production batch as the panels they back up. Same batch means same color and brightness behavior. So when a tile fails on day three, the replacement in the case is not a close-enough substitute that needs its own calibration window. It is already matched. Your crew swaps it and keeps rolling. That is the difference between a two-minute fix and a lost setup.</p>
+
+          <h2>Processing: lock the versions, map the color</h2>
+          <p>A misconfigured processor will stop a shoot as completely as a dead wall, and it is easier to overlook because everything appears to work until the camera disagrees.</p>
+          <p>So processors leave the shop loaded with the firmware and configuration your show actually calls for, and then those versions are locked. Nothing auto-updates. This sounds obvious until you have watched a processor pull an overnight update on set and change its scan rate or its handling of a refresh mode, which then shows up as banding the second the camera rolls. On a closed, prepped system, that does not happen. The versions are the ones we tested on the bench, and they stay that way.</p>
+          <p>Color is the other half of the processing pass, and it is the part that benefits most from happening early. We set color profiles against the specific camera and frame rate you give us, not a factory default. That means mapping the wall's color space so it reads correctly on your monitors, and getting refresh and scan settings right for your shutter so you are not chasing flicker or moire on the day. That conversation, what camera, what frame rate, what shutter, what gamut, happens before the truck loads. It is a five-minute exchange in pre-production. On the floor, with a crew waiting, the same problem is an hour you do not have. None of this replaces the on-set calibration your DP and volume operator will still want to do. It removes the part that should never have been on-set work in the first place.</p>
+
+          <figure class="article-fig">
+            <img src="assets/prep-cable-label.webp" alt="A technician tagging a coiled data cable by length beside a continuity tester" loading="lazy" width="1600" height="873">
+            <figcaption>Every run is tested and tagged by length before it goes in the case.</figcaption>
+          </figure>
+          <h2>Cable, power, and the order things go up in</h2>
+          <p>Data and power runs get counted, tested, and dressed in the shop. Every length is verified to carry signal and load before it goes in a case, because a cable that fails continuity is a thing you want to find on a bench with a spare on the shelf, not on a stage with a wall half-built.</p>
+          <p>Then we pack to the build order. Cases are labeled so a crew can read the sequence the wall needs to come together in, and they are loaded against your staging plan. First section up comes off the truck first. The next one follows it. Nobody is digging through three road cases looking for a specific cable length while the gaffer waits, because the length they need is in the case the plan says it should be in, labeled for the position it goes to. This is the unglamorous part, and it is the part that most directly buys back time on a load-in.</p>
 
           <h2>Why it matters to your day</h2>
-          <p>None of this shows up on an invoice line. It shows up as a stage that is shooting when it said it would be. Checked, clean, labelled, supported. That is what ready means to us.</p>
+          <p>None of this shows up on an invoice line. There is no charge called uniformity pass or batch-matched spares. It shows up somewhere more useful, which is the production report. It shows up as a stage that is shooting when the call sheet said it would be shooting, and as a day-three panel failure that costs two minutes instead of a setup.</p>
+          <p>That is the whole point of prepping in the warehouse instead of on the floor. The failure points do not disappear. They get moved to the one place where catching them is cheap. Checked on the bench by a tech who has done it on set. Clean, calibrated, and genlocked for your camera. Labeled down to the cable and packed in build order. And reachable, because the prep tech who staged your order is the one who picks up when something comes up at 02:00. That is what we mean by ready.</p>
         </div>
 
         <p class="article-keywords" id="article-keywords"></p>
@@ -198,66 +157,6 @@
   </footer>
 
   <script src="../app.js" defer></script>
-  <script>
-    (function () {
-      var SVC = {
-        led:    { label:'LED Volumes',       url:'../led-volumes.html',       svg:'<rect x="2" y="2" width="6" height="6"/><rect x="10" y="2" width="6" height="6"/><rect x="18" y="2" width="4" height="6"/><rect x="2" y="10" width="6" height="6"/><rect x="10" y="10" width="6" height="6"/><rect x="18" y="10" width="4" height="6"/><rect x="2" y="18" width="6" height="4"/><rect x="10" y="18" width="6" height="4"/><rect x="18" y="18" width="4" height="4"/>' },
-        plates: { label:'Driving Plates',     url:'../driving-plates.html',    svg:'<path d="M5 11l2-5h10l2 5v6h-2v-2H7v2H5v-6zm2.4-1h9.2l-1.2-3H8.6L7.4 10zM8 15a1.2 1.2 0 100-2.4A1.2 1.2 0 008 15zm8 0a1.2 1.2 0 100-2.4 1.2 1.2 0 000 2.4z"/>' },
-        server: { label:'Server Playback',    url:'../server-playback.html',   svg:'<rect x="3" y="3" width="18" height="5" rx="0.6"/><rect x="3" y="10" width="18" height="5" rx="0.6"/><rect x="3" y="17" width="18" height="4" rx="0.6"/>' },
-        light:  { label:'Specialty Lighting', url:'../specialty-lighting.html', svg:'<path d="M12 2a7 7 0 00-4.2 12.6V18h8.4v-3.4A7 7 0 0012 2zM9 20h6v2H9z"/>' },
-        remap:  { label:'Frame Remapping',    url:'../frame-remapping.html',   svg:'<rect x="2" y="5" width="13" height="10" opacity="0.45"/><rect x="9" y="9" width="13" height="10"/>' },
-        turnkey:{ label:'Turnkey Support',    url:'../turnkey-support.html',   svg:'<path d="M15 2a5.5 5.5 0 00-5.1 7.6L2 17.5V22h4.5v-2h2v-2h2v-2l1.4-1.4A5.5 5.5 0 1015 2zm1.8 5.5a1.5 1.5 0 110-3 1.5 1.5 0 010 3z"/>' }
-      };
-      function badges(list){ if(!list||!list.length) return ''; return list.map(function(k){ var s=SVC[k]; if(!s) return ''; return '<a class="svc-tag" href="'+s.url+'"><svg viewBox="0 0 24 24" aria-hidden="true">'+s.svg+'</svg>'+s.label+'</a>'; }).join(''); }
-      function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g,function(c){return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]);}); }
-      function fmtDate(d){ try { return new Date(d+'T00:00:00').toLocaleDateString('en-CA',{year:'numeric',month:'short',day:'numeric'}); } catch(e){ return esc(d); } }
-      function popItem(a){ var t=a.image?'<span class="pop-thumb"><img src="'+esc(a.image)+'" alt="" loading="lazy"></span>':''; return '<li><a href="'+esc(a.slug)+'.html">'+t+'<span class="pop-title">'+esc(a.title)+'</span></a></li>'; }
-      function buildSidebar(all, currentSlug){
-        var vis = all.filter(function(x){ return x.visible===true; });
-        vis.sort(function(p,q){ return (q.date||'').localeCompare(p.date||''); });
-        var fEl=document.getElementById('news-filter');
-        if(fEl){
-          var counts={}; vis.forEach(function(a){ (a.services||[]).forEach(function(k){ counts[k]=(counts[k]||0)+1; }); });
-          var html='<a href="index.html">All <span style="opacity:.45">'+vis.length+'</span></a>';
-          Object.keys(SVC).forEach(function(k){ if(counts[k]) html+='<a href="index.html?topic='+k+'">'+SVC[k].label+' <span style="opacity:.45">'+counts[k]+'</span></a>'; });
-          fEl.innerHTML=html;
-        }
-        var others=vis.filter(function(x){ return x.slug!==currentSlug; });
-        var rEl=document.getElementById('news-recent'), pEl=document.getElementById('news-popular');
-        var moreSoon='<li style="opacity:.6;padding:.6rem 0">More soon.</li>';
-        if(rEl) rEl.innerHTML=others.slice(0,5).map(popItem).join('')||moreSoon;
-        if(pEl){ var pop=others.filter(function(a){return a.popular!=null;}).sort(function(p,q){return (p.popular||99)-(q.popular||99);}); if(!pop.length) pop=others.slice(0,5); pEl.innerHTML=pop.slice(0,5).map(popItem).join('')||moreSoon; }
-        var tabs=document.querySelectorAll('.news-tab');
-        tabs.forEach(function(t){ t.addEventListener('click',function(){ tabs.forEach(function(x){x.setAttribute('aria-selected',x===t?'true':'false');}); var w=t.getAttribute('data-tab'); if(rEl) rEl.hidden=w!=='recent'; if(pEl) pEl.hidden=w!=='popular'; }); });
-        var sEl=document.getElementById('news-search');
-        if(sEl) sEl.addEventListener('keydown',function(e){ if(e.key==='Enter'){ var v=sEl.value.trim(); window.location='index.html'+(v?('?q='+encodeURIComponent(v)):''); } });
-      }
-      var slug = document.body.getAttribute('data-slug');
-      fetch('articles.json?cb=' + Date.now())
-        .then(function (r) { return r.json(); })
-        .then(function (d) {
-          var a = (d.articles || []).find(function (x) { return x.slug === slug; });
-          var hidden = !a || a.visible !== true;
-          if (!hidden) {
-            var bx = document.getElementById('article-badges');
-            if (bx && a && a.services) bx.innerHTML = badges(a.services);
-            var kEl = document.getElementById('article-keywords');
-            if (kEl) kEl.innerHTML = '<b>Keywords:</b> ' + ((a && a.keywords && a.keywords.length) ? a.keywords.map(function(k){ return esc(k); }).join(', ') : '');
-            buildSidebar(d.articles || [], slug);
-            return;
-          }
-          var m = document.querySelector('meta[data-cineva-robots]');
-          if (m) { m.setAttribute('content', 'noindex,nofollow'); }
-          else { var nm = document.createElement('meta'); nm.name = 'robots'; nm.setAttribute('content', 'noindex,nofollow'); nm.setAttribute('data-cineva-robots', ''); document.head.appendChild(nm); }
-          var main = document.getElementById('main');
-          if (main) {
-            main.innerHTML = '<section class="section"><div class="container"><p class="eyebrow">Unavailable</p>' +
-              '<h1 class="display-section">This article isn\'t available right now<span class="pt">.</span></h1>' +
-              '<p class="body-lg" style="margin-top:var(--s-4);max-width:60ch;">It may have been unpublished. Head back to <a href="index.html">the news index</a> for current pieces.</p></div></section>';
-          }
-        })
-        .catch(function () {});
-    })();
-  </script>
+  <script src="news.js" defer></script>
 </body>
 </html>
