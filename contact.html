@@ -28,6 +28,11 @@
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap"></noscript>
   <link rel="preload" as="image" href="assets/contact-hero.webp" fetchpriority="high">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .contact-split { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-16); align-items: start; }
+    @media (max-width: 768px) { .contact-split { grid-template-columns: 1fr; } }
+    .contact-split .hours-strip { margin-top: 0; }
+  </style>
 
   <script type="application/ld+json">
 {
@@ -72,34 +77,47 @@
     {
       "@type": "Question",
       "name": "Where do you deliver?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Anywhere a truck can drive. Part of our turnkey support."
-      }
+      "acceptedAnswer": {"@type": "Answer", "text": "Anywhere a truck can drive. It's part of our turnkey support."}
     },
     {
       "@type": "Question",
-      "name": "Do you provide crew?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Turnkey Support covers labour, crew, and pre-shoot consulting. The prep tech who stages your order is the one who answers when something needs attention on set."
-      }
+      "name": "Do you work outside Ontario?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Yes. Apex has been loading gear onto tour trucks across North America for decades. Out-of-province shoots get the same staged kit and the same techs who'd show up across town. Send us your dates and locations and we'll make it work."}
+    },
+    {
+      "@type": "Question",
+      "name": "What's the minimum booking period?",
+      "acceptedAnswer": {"@type": "Answer", "text": "None. A single shoot day is fine. For runs that go weeks or months, we build a rate that reflects the commitment. Send your schedule and we'll put numbers to it."}
+    },
+    {
+      "@type": "Question",
+      "name": "Do you require production insurance?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Yes. Every booking needs a Certificate of Insurance naming Apex Sound & Light as additional insured. No policy of your own? We'll point you to brokers who work with film and TV."}
+    },
+    {
+      "@type": "Question",
+      "name": "What's included in the rate, and are there hidden costs?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Equipment, staging, prep, labour, and delivery are all in the quote. Specialty rigging is quoted separately and upfront, before anything rolls. Final invoices reflect actual hours. Schedules move on a shoot and we plan for it, but extensions happen and you'll see them itemized."}
+    },
+    {
+      "@type": "Question",
+      "name": "Do you do pre-production consultations?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Yes, and we'd rather you did. A walkthrough before the shoot lets us spec the right kit, flag site issues, and match the tech to your shot list. Send a brief and we'll set one up."}
+    },
+    {
+      "@type": "Question",
+      "name": "Can I extend a booking once it's started?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Yes, subject to availability. Call the moment you know you need more time and we'll work to keep the kit with you."}
+    },
+    {
+      "@type": "Question",
+      "name": "What if something breaks on set?",
+      "acceptedAnswer": {"@type": "Answer", "text": "We carry spares. Everything that goes on a truck is staged with redundancy built in. If a piece fails, we've already got the path to keep you rolling."}
     },
     {
       "@type": "Question",
       "name": "Can I visit?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "We're open for regular business daily. Shop floor visits by appointment. 1845 Clements Rd in Pickering."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How much lead time do you need?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Same-day calls are welcome for urgent jobs. For planned productions, a few days is enough to stage and deliver. For large VP builds or multi-week shoots, two weeks lets us prep everything properly."
-      }
+      "acceptedAnswer": {"@type": "Answer", "text": "We're open daily for regular business. Shop floor visits are by appointment. 1845 Clements Rd, Pickering."}
     }
   ]
 }
@@ -116,6 +134,7 @@
       </a>
       <div class="nav-links" id="nav-links">
         <a href="index.html">Home</a>
+        <a href="news/index.html">News</a>
         <div class="nav-dropdown">
           <a href="what-we-do.html" class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">What We Do</a>
           <div class="nav-dropdown-menu">
@@ -152,7 +171,7 @@
     </div>
   </section>
 
-  <!-- CONTACT INFO -->
+  <!-- CONTACT INFO + HOURS -->
   <section class="section">
     <div class="container">
       <div class="contact-grid">
@@ -179,87 +198,112 @@
     </div>
   </section>
 
-  <!-- FAQ -->
+  <!-- FAQ | FORM (2-col, eyebrows aligned) -->
   <section class="section reveal" style="border-top: 1px solid var(--line-1);">
     <div class="container">
-      <p class="eyebrow">Common questions</p>
-      <div class="faq-list">
-        <details class="faq-item">
-          <summary>Where do you deliver?</summary>
-          <p>Anywhere a truck can drive. Part of our turnkey support.</p>
-        </details>
-        <details class="faq-item">
-          <summary>Do you provide crew?</summary>
-          <p>Yes. Turnkey Support covers labour, crew, and pre-shoot consulting. The prep tech who stages your order is the one who answers when something needs attention on set.</p>
-        </details>
-        <details class="faq-item">
-          <summary>Can I visit?</summary>
-          <p>We're open for regular business daily. Shop floor visits by appointment. 1845 Clements Rd in Pickering.</p>
-        </details>
-        <details class="faq-item">
-          <summary>How much lead time do you need?</summary>
-          <p>Same-day calls are welcome for urgent jobs. For planned productions, a few days is enough to stage and deliver. For large VP builds or multi-week shoots, two weeks lets us prep everything properly.</p>
-        </details>
+      <div class="contact-split">
+
+        <!-- LEFT: FAQ -->
+        <div>
+          <p class="eyebrow">Common questions</p>
+          <div class="faq-list">
+            <details class="faq-item">
+              <summary>Where do you deliver?</summary>
+              <p>Anywhere a truck can drive. It's part of our turnkey support.</p>
+            </details>
+            <details class="faq-item">
+              <summary>Do you work outside Ontario?</summary>
+              <p>Yes. Apex has been loading gear onto tour trucks across North America for decades. Out-of-province shoots get the same staged kit and the same techs who'd show up across town. Send us your dates and locations and we'll make it work.</p>
+            </details>
+            <details class="faq-item">
+              <summary>What's the minimum booking period?</summary>
+              <p>None. A single shoot day is fine. For runs that go weeks or months, we build a rate that reflects the commitment. Send your schedule and we'll put numbers to it.</p>
+            </details>
+            <details class="faq-item">
+              <summary>Do you require production insurance?</summary>
+              <p>Yes. Every booking needs a Certificate of Insurance naming Apex Sound &amp; Light as additional insured. No policy of your own? We'll point you to brokers who work with film and TV.</p>
+            </details>
+            <details class="faq-item">
+              <summary>What's included in the rate, and are there hidden costs?</summary>
+              <p>Equipment, staging, prep, labour, and delivery are all in the quote. Specialty rigging is quoted separately and upfront, before anything rolls. Final invoices reflect actual hours. Schedules move on a shoot and we plan for it, but extensions happen and you'll see them itemized.</p>
+            </details>
+            <details class="faq-item">
+              <summary>Do you do pre-production consultations?</summary>
+              <p>Yes, and we'd rather you did. A walkthrough before the shoot lets us spec the right kit, flag site issues, and match the tech to your shot list. Send a brief and we'll set one up.</p>
+            </details>
+            <details class="faq-item">
+              <summary>Can I extend a booking once it's started?</summary>
+              <p>Yes, subject to availability. Call the moment you know you need more time and we'll work to keep the kit with you.</p>
+            </details>
+            <details class="faq-item">
+              <summary>What if something breaks on set?</summary>
+              <p>We carry spares. Everything that goes on a truck is staged with redundancy built in. If a piece fails, we've already got the path to keep you rolling.</p>
+            </details>
+            <details class="faq-item">
+              <summary>Can I visit?</summary>
+              <p>We're open daily for regular business. Shop floor visits are by appointment. 1845 Clements Rd, Pickering.</p>
+            </details>
+          </div>
+        </div>
+
+        <!-- RIGHT: Form -->
+        <div>
+          <p class="eyebrow">Send us a brief</p>
+          <h2 class="display-section" style="margin-bottom: var(--s-3);">Tell us about the shoot<span class="pt">.</span></h2>
+          <p style="color: var(--muted); margin-bottom: var(--s-10);">Call us directly for same-day jobs. For planned productions, fill this out — we'll get back to you within one business day.</p>
+
+          <form class="contact-form" action="https://formspree.io/f/xgobdwep" method="POST" novalidate>
+            <input type="hidden" name="_subject" value="New enquiry via cinevabyapex.com">
+            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
+            <div class="form-row form-row--2">
+              <div class="form-field">
+                <label for="cf-name">Name <span aria-hidden="true">*</span></label>
+                <input id="cf-name" name="name" type="text" autocomplete="name" required placeholder="Your name">
+              </div>
+              <div class="form-field">
+                <label for="cf-company">Company</label>
+                <input id="cf-company" name="company" type="text" autocomplete="organization" placeholder="Production company">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="cf-email">Email <span aria-hidden="true">*</span></label>
+                <input id="cf-email" name="email" type="email" autocomplete="email" required placeholder="you@studio.com">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="cf-type">Production type</label>
+                <select id="cf-type" name="production_type">
+                  <option value="">— select —</option>
+                  <option value="film">Film</option>
+                  <option value="tv-scripted">TV — Scripted</option>
+                  <option value="tv-unscripted">TV — Unscripted</option>
+                  <option value="commercial">Commercial</option>
+                  <option value="music-video">Music Video</option>
+                  <option value="live-event">Live Event</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="cf-message">Message</label>
+                <textarea id="cf-message" name="message" placeholder="Tell us about the shoot — stage, services needed, dates, anything useful."></textarea>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <button type="submit" class="btn btn-cyan">Send enquiry →</button>
+            </div>
+          </form>
+        </div>
+
       </div>
-    </div>
-  </section>
-
-  <!-- CONTACT FORM -->
-  <section class="section reveal" style="border-top: 1px solid var(--line-1);">
-    <div class="container">
-      <p class="eyebrow">Send us a brief</p>
-      <h2 class="display-section" style="margin-bottom: var(--s-3);">Tell us about the shoot<span class="pt">.</span></h2>
-      <p style="color: var(--muted); margin-bottom: var(--s-10);">Call us directly for same-day jobs. For planned productions, fill this out — we'll get back to you within one business day.</p>
-
-      <form class="contact-form" action="https://formspree.io/f/xgobdwep" method="POST" novalidate>
-        <input type="hidden" name="_subject" value="New enquiry via cinevabyapex.com">
-        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
-
-        <div class="form-row form-row--2">
-          <div class="form-field">
-            <label for="cf-name">Name <span aria-hidden="true">*</span></label>
-            <input id="cf-name" name="name" type="text" autocomplete="name" required placeholder="Your name">
-          </div>
-          <div class="form-field">
-            <label for="cf-company">Company</label>
-            <input id="cf-company" name="company" type="text" autocomplete="organization" placeholder="Production company">
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-field">
-            <label for="cf-email">Email <span aria-hidden="true">*</span></label>
-            <input id="cf-email" name="email" type="email" autocomplete="email" required placeholder="you@studio.com">
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-field">
-            <label for="cf-type">Production type</label>
-            <select id="cf-type" name="production_type">
-                      <option value="">— select —</option>
-              <option value="film">Film</option>
-              <option value="tv-scripted">TV — Scripted</option>
-              <option value="tv-unscripted">TV — Unscripted</option>
-              <option value="commercial">Commercial</option>
-              <option value="music-video">Music Video</option>
-              <option value="live-event">Live Event</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-field">
-            <label for="cf-message">Message</label>
-            <textarea id="cf-message" name="message" placeholder="Tell us about the shoot — stage, services needed, dates, anything useful."></textarea>
-          </div>
-        </div>
-
-        <div class="form-row">
-          <button type="submit" class="btn btn-cyan">Send enquiry →</button>
-        </div>
-      </form>
     </div>
   </section>
 

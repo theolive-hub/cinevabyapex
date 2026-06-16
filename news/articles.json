@@ -1,0 +1,29 @@
+{
+  "$comment": "Single source of truth for the Cineva news section. The news-admin.html page reads and writes this file via the GitHub API. 'visible: false' unlists an article: it drops off the index, out of news-sitemap.xml, and gets noindex on its own page — but the URL still returns 200 (not a dead 404).",
+  "updated": "2026-06-15",
+  "articles": [
+    {
+      "slug": "led-volume-prep-checklist",
+      "title": "What we check before an LED volume ships",
+      "dek": "The pre-flight pass every volume order goes through in the Pickering warehouse, and why it saves you time on the floor.",
+      "date": "2026-06-15",
+      "author": "Cineva",
+      "tag": "On set",
+      "image": "../assets/ledvolumes.webp",
+      "services": ["led", "turnkey"],
+      "popular": 1,
+      "visible": true
+    },
+    {
+      "slug": "driving-plates-vs-stock",
+      "title": "Driving plates: shoot your own or pull from stock?",
+      "dek": "When a custom plate earns its budget and when a library clip does the job just as well.",
+      "date": "2026-06-10",
+      "author": "Cineva",
+      "tag": "Field notes",
+      "image": "../assets/drivingplates.webp",
+      "services": ["plates"],
+      "visible": false
+    }
+  ]
+}

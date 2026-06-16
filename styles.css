@@ -1019,8 +1019,9 @@ h1, h2, h3, h4 {
    ============================================================ */
 .contact-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr auto;
   gap: var(--s-16);
+  align-items: start;
   margin-top: var(--s-8);
 }
 

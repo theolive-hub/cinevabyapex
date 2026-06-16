@@ -2,5 +2,8 @@ User-agent: *
 Allow: /
 Disallow: /uploads/
 Disallow: /Wireframes.html
+Disallow: /news-admin.html
+Disallow: /news/_template.html
 
 Sitemap: https://cinevabyapex.com/sitemap.xml
+Sitemap: https://cinevabyapex.com/news-sitemap.xml
