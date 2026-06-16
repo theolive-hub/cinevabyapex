@@ -30,11 +30,11 @@
   <style>
     /* ===== News: editorial / online-paper layout (dark, scoped) ===== */
     .news-mag { --mag:#C9337A; }
-    .news-masthead-slim { border-bottom:1px solid rgba(255,255,255,.12); padding:.9rem 0 1rem; margin:1rem 0 .4rem; }
-    .news-dateline { font-family:'JetBrains Mono',monospace; font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; opacity:.62; display:flex; flex-wrap:wrap; gap:.4rem 1.1rem; }
-    .news-dateline .cyan { color:var(--cyan,#38e1d6); }
-    .news-h1 { font-family:'Archivo',system-ui,sans-serif; font-weight:800; font-size:1.4rem; letter-spacing:-.01em; margin:.5rem 0 0; }
-    .news-h1 .pt { color:#C9337A; }
+    .news-hero { position:relative; min-height:clamp(220px,26vw,360px); overflow:hidden; }
+    .news-hero-bg { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+    .news-hero-scrim { position:absolute; inset:0; background:linear-gradient(180deg,rgba(8,9,11,0) 55%,rgba(8,9,11,.6) 100%); }
+    /* pull the content panel up over the hero (more overlap than other pages) */
+    .news-mag .section { position:relative; z-index:2; margin-top:clamp(-8rem,-10vw,-5rem); background:var(--ink,#1C1D20); border-top:none; border-radius:16px 16px 0 0; }
 
     /* service badges */
     .svc-tags { display:flex; flex-wrap:wrap; gap:.4rem; }
@@ -131,6 +131,12 @@
   </nav>
 
   <main id="main" class="news-mag">
+
+    <section class="news-hero">
+      <img class="news-hero-bg" src="../assets/news-hero.webp" alt="Cineva LED volume on a Toronto soundstage" loading="eager">
+      <div class="news-hero-scrim"></div>
+    </section>
+
     <section class="section">
       <div class="container">
 
