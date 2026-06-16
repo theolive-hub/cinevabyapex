@@ -28,24 +28,28 @@
     },
     {
       "slug": "driving-plates-vs-stock",
-      "title": "Driving plates: shoot your own or pull from stock?",
-      "dek": "When a custom plate earns its budget and when a library clip does the job just as well.",
-      "date": "2026-06-10",
+      "title": "Custom plate or stock?",
+      "dek": "When a custom driving plate earns its budget and when a library clip does the job just as well, and the playback that makes either one read real.",
+      "date": "2026-06-16",
       "author": "Cineva",
       "tag": "Field notes",
-      "image": "../assets/drivingplates.webp",
+      "image": "assets/driving-plates-vs-stock-fig1.webp",
       "services": [
-        "plates"
+        "plates",
+        "led"
       ],
       "keywords": [
         "driving plates",
         "process trailer",
-        "car scene",
-        "virtual production",
+        "car on stage",
+        "stock plates",
+        "drivingplates.com",
+        "LED volume",
         "Toronto",
-        "stock plates"
+        "virtual production"
       ],
-      "visible": false
+      "visible": true,
+      "popular": 2
     }
   ]
 }

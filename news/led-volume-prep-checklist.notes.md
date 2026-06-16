@@ -25,29 +25,30 @@ Companion file for `led-volume-prep-checklist.html`. Holds the editorial notes a
 
 Do not reuse existing assets. Generate fresh figures from these. Photographic, documentary realism, dark industrial warehouse, natural cyan/magenta LED glow, shallow depth of field. No text, no logos, no watermarks, no visible faces/branding. 3:2 landscape unless noted.
 
-### Figure 1 — hero / intro (replaces the current ledvolumes.webp)
+Facility-shot rule: these are our warehouse/prep floor, so they must read BRIGHT, UPLIFTING, MODERN, a clean, well-lit, contemporary space. No dark/moody industrial grading. (The current live images are dark and predate this rule, regenerate to comply.)
 
-> Documentary photograph of a single large-format LED video wall tile held on a calibration bench in a dim equipment warehouse, the panel glowing an even neutral grey under inspection, a technician's gloved hands steadying its edge, a probe or colorimeter resting on the surface, racks of cased panels softly out of focus behind, cool cyan rim light, realistic shadows, shot on a 50mm lens, shallow depth of field, no text or logos.
+### Figure 1 — hero / intro
+
+> Documentary photograph of a single large-format LED video wall tile held on a calibration bench in a bright, clean, modern equipment facility, daylight-balanced overhead lighting, white and light-grey surfaces, the panel glowing an even neutral grey under inspection, a technician's gloved hands steadying its edge, a colorimeter resting on the surface, tidy racks of cased panels softly out of focus behind, airy and uplifting, subtle cyan accent, shot on a 50mm lens, shallow depth of field, no text or logos.
 
 - Suggested filename: `prep-uniformity-check.webp`
 - Caption: "Every tile gets a uniformity check on the bench before it is cased."
 
 ### Figure 2 — processing / color section
 
-> Documentary photograph of a road-case rack of LED processors and a small calibration monitor in a dim warehouse, the monitor showing a neutral color-bar test pattern, status LEDs glowing cyan, neatly dressed signal cabling, a technician partly visible adjusting a setting, moody industrial lighting, shallow depth of field, realistic, no text or logos.
+> Documentary photograph of a road-case rack of LED processors and a calibration monitor in a bright, clean, modern prep facility, daylight-balanced lighting, light walls, the monitor showing a neutral color-bar test pattern, status LEDs glowing cyan, neatly dressed signal cabling, a technician adjusting a setting, crisp and uplifting, shallow depth of field, realistic, no text or logos.
 
 - Suggested filename: `prep-processor-rack.webp`
 - Caption: "Processors leave the shop with firmware locked and color mapped to your camera."
 
-### Figure 3 — cable / build-order section (REPLACEMENT — old wide-floor shot read as repetitive vs Figure 1)
+### Figure 3 — cable / build-order section
 
-New direction: go tight and detail-oriented instead of another wide warehouse view. Macro on the labeling/testing itself.
+Go tight and detail-oriented instead of another wide view. Macro on the labeling/testing itself, still bright and clean.
 
-> Tight macro documentary photograph of a technician's hand wrapping a printed numbered ID label around a coiled black data cable, a cable continuity tester with a small glowing readout resting just behind, neatly bundled looms tagged by length softly out of focus, dark workbench surface, cool cyan accent light catching the connector, very shallow depth of field, realistic, no readable text, no logos, no watermark.
+> Tight macro documentary photograph of a technician's hand wrapping a printed numbered ID label around a coiled black data cable, a cable continuity tester with a small glowing readout just behind, neatly bundled looms tagged by length softly out of focus, clean light workbench surface, bright daylight-balanced lighting, subtle cyan accent on the connector, very shallow depth of field, realistic, no readable text, no logos, no watermark.
 
 - Suggested filename: `prep-cable-label.webp`
 - Caption: "Every run is tested and tagged by length before it goes in the case."
-- Note: removed from the live article for now; drop the PNG in `news/assets/` and I'll convert + place it.
 
 ## Status
 

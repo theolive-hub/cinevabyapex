@@ -114,10 +114,11 @@
         fEl.innerHTML = html;
       }
       var others = vis.filter(function(x){ return x.slug !== currentSlug; });
+      var base = others.length ? others : vis;  /* fall back to all visible so the lists never read empty on a one-article site */
       var rEl = document.getElementById('news-recent'), pEl = document.getElementById('news-popular');
       var moreSoon = '<li style="opacity:.6;padding:.6rem 0">More soon.</li>';
-      if (rEl) rEl.innerHTML = others.slice(0, 5).map(popItem).join('') || moreSoon;
-      if (pEl){ var pop = others.filter(function(a){ return a.popular != null; }).sort(function(p, q){ return (p.popular || 99) - (q.popular || 99); }); if (!pop.length) pop = others.slice(0, 5); pEl.innerHTML = pop.slice(0, 5).map(popItem).join('') || moreSoon; }
+      if (rEl) rEl.innerHTML = base.slice(0, 5).map(popItem).join('') || moreSoon;
+      if (pEl){ var pop = base.filter(function(a){ return a.popular != null; }).sort(function(p, q){ return (p.popular || 99) - (q.popular || 99); }); if (!pop.length) pop = base.slice(0, 5); pEl.innerHTML = pop.slice(0, 5).map(popItem).join('') || moreSoon; }
       var sEl = document.getElementById('news-search');
       if (sEl) sEl.addEventListener('keydown', function(e){ if (e.key === 'Enter'){ var v = sEl.value.trim(); window.location = 'index.html' + (v ? ('?q=' + encodeURIComponent(v)) : ''); } });
     }

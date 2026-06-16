@@ -60,7 +60,7 @@
 .news-layout { display:grid; grid-template-columns:250px minmax(0,1fr); gap:clamp(1.5rem,3vw,3rem); align-items:start; margin-top:.5rem; }
 .news-feed, .article-main { min-width:0; }
 .news-sidebar { position:sticky; top:88px; display:flex; flex-direction:column; gap:1.7rem; }
-.news-side-h { font-family:'JetBrains Mono',monospace; font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; opacity:.74; margin:0 0 .65rem; display:block; }
+.news-side-h { font-family:'JetBrains Mono',monospace; font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; color:var(--stage,#C9337A); opacity:1; margin:0 0 .65rem; display:block; }
 .news-search { width:100%; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.13); border-radius:6px; color:#DDDFE5; font-family:'Archivo',system-ui,sans-serif; font-size:.9rem; padding:.55rem .7rem; }
 .news-search:focus { outline:none; border-color:var(--cyan,#38e1d6); }
 .news-search::placeholder { color:rgba(221,223,229,.4); }
