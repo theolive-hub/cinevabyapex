@@ -9,9 +9,20 @@
       "date": "2026-06-15",
       "author": "Cineva",
       "tag": "On set",
-      "image": "../assets/ledvolumes.webp",
-      "services": ["led", "turnkey"],
-      "keywords": ["LED volume", "virtual production", "Brompton", "ROE Black Pearl BP2", "Toronto", "pre-light", "warehouse prep"],
+      "image": "assets/prep-uniformity-check.webp",
+      "services": [
+        "led",
+        "turnkey"
+      ],
+      "keywords": [
+        "LED volume",
+        "virtual production",
+        "Brompton",
+        "ROE Black Pearl BP2",
+        "Toronto",
+        "pre-light",
+        "warehouse prep"
+      ],
       "popular": 1,
       "visible": true
     },
@@ -23,8 +34,17 @@
       "author": "Cineva",
       "tag": "Field notes",
       "image": "../assets/drivingplates.webp",
-      "services": ["plates"],
-      "keywords": ["driving plates", "process trailer", "car scene", "virtual production", "Toronto", "stock plates"],
+      "services": [
+        "plates"
+      ],
+      "keywords": [
+        "driving plates",
+        "process trailer",
+        "car scene",
+        "virtual production",
+        "Toronto",
+        "stock plates"
+      ],
       "visible": false
     }
   ]

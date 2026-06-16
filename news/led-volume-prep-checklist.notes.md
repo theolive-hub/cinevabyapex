@@ -52,6 +52,7 @@ New direction: go tight and detail-oriented instead of another wide warehouse vi
 ## Status
 
 - All figures in `website/news/assets/` as WebP (q82). PNG sources deleted after conversion (standing rule).
-  - Figure 1 `prep-uniformity-check.webp` — top figure (replaced ledvolumes.webp). LIVE.
-  - Figure 3 `prep-cable-label.webp` — macro at the cable/build-order section (replaced the repetitive wide build-order shot). LIVE.
-- Figure 2 (processor rack) not yet provided. Drop a PNG in `website/news/assets/` and I'll convert + place it at the processing section.
+- All three figures LIVE, alternating left / right / left with text wrap. Figure size cap raised to ~506px (51% column).
+  - Figure 1 `prep-uniformity-check.webp` — Panels section, float LEFT (replaced ledvolumes.webp).
+  - Figure 2 `prep-processor-rack.webp` — Processing section, float RIGHT.
+  - Figure 3 `prep-cable-label.webp` — Cable section, float LEFT (replaced the repetitive wide build-order shot).
