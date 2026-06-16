@@ -50,7 +50,7 @@
 
   <style>
     /* ===== Cineva news article — editorial / online-paper (dark, scoped) ===== */
-    .article-wrap { max-width: 74ch; }
+    .article-wrap { max-width: none; }
     .article-back { font-family:'JetBrains Mono', monospace; font-size:.8rem; color: var(--cyan,#38e1d6); text-decoration:none; }
     .article-head { margin: var(--s-4,1rem) 0 var(--s-6,1.5rem); border-bottom:1px solid rgba(255,255,255,.10); padding-bottom: var(--s-6,1.5rem); }
     .article-kicker { font-family:'JetBrains Mono',monospace; font-size:.74rem; letter-spacing:.1em; text-transform:uppercase; color:var(--cyan,#38e1d6); margin:0 0 .6rem; }
@@ -61,9 +61,11 @@
     .svc-tag { display:inline-flex; align-items:center; gap:.4rem; padding:.3rem .6rem .3rem .45rem; border:1px solid rgba(255,255,255,.13); border-radius:999px; text-decoration:none; color:inherit; font-family:'JetBrains Mono',monospace; font-size:.66rem; letter-spacing:.04em; text-transform:uppercase; transition:border-color .18s, background .18s, transform .18s; }
     .svc-tag:hover { border-color:var(--cyan,#38e1d6); background:rgba(56,225,214,.07); transform:translateY(-1px); }
     .svc-tag svg { width:15px; height:15px; flex:none; fill:#C9337A; }
-    .article-hero { margin: var(--s-6,1.5rem) 0 var(--s-8,2rem); border-radius: 6px; overflow: hidden; aspect-ratio: 16/9; background:#111; }
-    .article-hero img { width:100%; height:100%; object-fit: cover; display:block; }
-    .article-body { font-size:1.06rem; }
+    .article-fig { float:left; width:clamp(200px,34%,305px); margin:.4rem 1.6rem 1rem 0; }
+    .article-fig img { width:100%; border-radius:6px; display:block; background:#111; }
+    .article-fig figcaption { font-family:'JetBrains Mono',monospace; font-size:.68rem; letter-spacing:.03em; text-transform:uppercase; opacity:.6; margin-top:.5rem; line-height:1.35; }
+    @media (max-width:600px){ .article-fig { float:none; width:100%; margin:0 0 1.2rem; } }
+    .article-body { font-size:1.06rem; display:flow-root; }
     .article-body p { line-height: 1.75; margin: 0 0 1.25rem; }
     .article-body > p:first-of-type { font-size:1.18rem; line-height:1.62; opacity:.96; }
     .article-body h2 { margin: 2.2rem 0 .7rem; font-size:1.4rem; }
@@ -81,9 +83,6 @@
     .news-filter { display:flex; flex-direction:column; gap:.15rem; }
     .news-filter a { color:inherit; text-decoration:none; font-family:'JetBrains Mono',monospace; font-size:.74rem; letter-spacing:.02em; text-transform:uppercase; opacity:.7; padding:.32rem .15rem; display:flex; justify-content:space-between; gap:.5rem; transition:opacity .15s, color .15s; }
     .news-filter a:hover { opacity:1; color:var(--cyan,#38e1d6); }
-    .news-sitelinks { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:.6rem; }
-    .news-sitelinks a { color:inherit; text-decoration:none; font-size:.9rem; line-height:1.3; opacity:.85; transition:color .15s, opacity .15s; }
-    .news-sitelinks a:hover { color:var(--cyan,#38e1d6); opacity:1; }
     .news-tabs { display:flex; gap:1.1rem; border-bottom:1px solid rgba(255,255,255,.12); margin-bottom:.4rem; }
     .news-tab { background:none; border:none; color:inherit; font-family:'JetBrains Mono',monospace; font-size:.67rem; letter-spacing:.09em; text-transform:uppercase; opacity:.55; padding:0 0 .5rem; cursor:pointer; border-bottom:2px solid transparent; margin-bottom:-1px; }
     .news-tab[aria-selected="true"] { opacity:1; color:var(--cyan,#38e1d6); border-bottom-color:var(--cyan,#38e1d6); }
@@ -151,19 +150,6 @@
               <ul class="news-poplist" id="news-recent"></ul>
               <ul class="news-poplist" id="news-popular" hidden></ul>
             </div>
-            <div class="news-side-block">
-              <p class="news-side-h">Explore</p>
-              <ul class="news-sitelinks">
-                <li><a href="../what-we-do.html">What We Do</a></li>
-                <li><a href="../led-volumes.html">LED Video Volumes</a></li>
-                <li><a href="../driving-plates.html">Driving Plates</a></li>
-                <li><a href="../frame-remapping.html">Frame Remapping</a></li>
-                <li><a href="../specialty-lighting.html">Specialty Lighting</a></li>
-                <li><a href="../turnkey-support.html">Turnkey Support</a></li>
-                <li><a href="../work.html">Our Work</a></li>
-                <li><a href="../our-tech.html">Our Tech</a></li>
-              </ul>
-            </div>
             <div class="news-side-cta">
               <p>Got a shot in mind?</p>
               <a href="../contact.html" class="btn btn-cyan btn-sm">Tell us the shot →</a>
@@ -179,8 +165,11 @@
           <!-- Service badges auto-populate from this article's "services" array in articles.json. -->
           <div class="svc-tags" id="article-badges"></div>
         </header>
-        <div class="article-hero"><img src="{{IMAGE}}" alt="{{TITLE}}" loading="lazy"></div>
         <div class="article-body">
+          <figure class="article-fig">
+            <img src="{{IMAGE}}" alt="{{TITLE}}" loading="lazy">
+            <figcaption>{{CAPTION}}</figcaption>
+          </figure>
           {{BODY_HTML}}
         </div>
 
