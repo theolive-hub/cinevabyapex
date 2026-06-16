@@ -45,7 +45,7 @@
     .article-back { font-family:'JetBrains Mono', monospace; font-size:.8rem; color: var(--cyan,#38e1d6); text-decoration:none; }
     .article-head { margin: var(--s-4,1rem) 0 var(--s-6,1.5rem); border-bottom:1px solid rgba(255,255,255,.10); padding-bottom: var(--s-6,1.5rem); }
     .article-kicker { font-family:'JetBrains Mono',monospace; font-size:.74rem; letter-spacing:.1em; text-transform:uppercase; color:var(--cyan,#38e1d6); margin:0 0 .6rem; }
-    .article-head h1 { line-height:1.04; letter-spacing:-.01em; margin:0 0 .8rem; }
+    .article-head h1 { font-size:clamp(1.8rem,3.4vw,2.6rem); line-height:1.06; letter-spacing:-.01em; margin:0 0 .8rem; }
     .article-byline { font-family:'JetBrains Mono',monospace; font-size:.76rem; letter-spacing:.03em; text-transform:uppercase; opacity:.64; margin:0 0 1rem; }
     .svc-tags { display:flex; flex-wrap:wrap; gap:.4rem; }
     .svc-tags:empty { display:none; }
@@ -61,9 +61,6 @@
     .article-body a { color:var(--cyan,#38e1d6); }
     .article-body blockquote { margin:1.8rem 0; padding:.1rem 0 .1rem 1.3rem; border-left:3px solid #C9337A; font-size:1.25rem; line-height:1.4; font-weight:600; }
     .article-body ul, .article-body ol { line-height:1.75; margin:0 0 1.25rem 1.1rem; }
-    .article-cta { margin-top: var(--s-8,2.5rem); border-top:1px solid rgba(255,255,255,.10); padding-top: var(--s-8,2rem); display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1rem; }
-    .article-cta h2 { margin:0; font-size:1.5rem; }
-    .article-cta .sub { font-family:'JetBrains Mono',monospace; font-size:.78rem; opacity:.6; text-transform:uppercase; letter-spacing:.04em; margin:.3rem 0 0; }
     /* ===== news sidebar (shared look with the index, so it persists on click) ===== */
     .news-layout { display:grid; grid-template-columns:250px minmax(0,1fr); gap:clamp(1.5rem,3vw,3rem); align-items:start; margin-top:.5rem; }
     .article-main { min-width:0; }
@@ -187,14 +184,6 @@
 
           <h2>Why it matters to your day</h2>
           <p>None of this shows up on an invoice line. It shows up as a stage that is shooting when it said it would be. Checked, clean, labelled, supported. That is what ready means to us.</p>
-        </div>
-
-        <div class="article-cta">
-          <div>
-            <h2>Tell us the shot<span class="pt">.</span></h2>
-            <p class="sub">One call. Equipment, crew, and a workflow built around the day.</p>
-          </div>
-          <a href="../contact.html" class="btn btn-cyan">Contact →</a>
         </div>
 
         <p class="article-keywords" id="article-keywords"></p>
