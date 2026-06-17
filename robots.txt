@@ -2,5 +2,11 @@ User-agent: *
 Allow: /
 Disallow: /news-admin.html
 
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
 Sitemap: https://cinevabyapex.com/sitemap.xml
 Sitemap: https://cinevabyapex.com/news-sitemap.xml
