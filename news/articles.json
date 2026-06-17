@@ -98,6 +98,29 @@
         "Toronto"
       ],
       "visible": true
+    },
+    {
+      "slug": "pixel-pitch-plainly",
+      "title": "Pixel pitch, plainly",
+      "dek": "The closest your camera gets to the wall sets the pixel pitch you need. What 2.6, 2.9, and 3.9mm actually buy, and when coarser is the smart call.",
+      "date": "2026-06-16",
+      "author": "Cineva",
+      "tag": "Field notes",
+      "image": "assets/pixel-pitch-plainly-fig1.webp",
+      "services": [
+        "led"
+      ],
+      "keywords": [
+        "pixel pitch",
+        "2.6mm",
+        "2.9mm",
+        "3.9mm",
+        "moiré",
+        "depth of field",
+        "LED volume",
+        "camera distance"
+      ],
+      "visible": true
     }
   ]
 }
