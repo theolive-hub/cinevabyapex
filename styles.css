@@ -685,11 +685,18 @@ h1, h2, h3, h4 {
   background: none;
   border: none;
   display: block;
+  height: auto;
+}
+
+.service-block-image--natural picture {
+  display: block;
+  width: 100%;
 }
 
 .service-block-image--natural img {
+  width: 100%;
   height: auto;
-  object-fit: contain;
+  object-fit: fill;
 }
 
 .service-block-image span {
