@@ -131,15 +131,6 @@
     }
 
     function buildShare(){
-      var host = document.getElementById('article-share');
-      if (!host){
-        var bx = document.getElementById('article-badges');
-        if (!bx || !bx.parentNode) return;
-        host = document.createElement('div');
-        host.id = 'article-share';
-        host.className = 'article-share';
-        bx.parentNode.insertBefore(host, bx.nextSibling);
-      }
       var canon = document.querySelector('link[rel="canonical"]');
       var url = (canon && canon.href) || location.href;
       var tEl = document.querySelector('meta[property="og:title"]');
@@ -147,18 +138,37 @@
       var u = encodeURIComponent(url), t = encodeURIComponent(title), tu = encodeURIComponent(title + ' ' + url);
       function svg(p){ return '<svg viewBox="0 0 24 24" aria-hidden="true">' + p + '</svg>'; }
       function link(href, label, icon){ return '<a class="share-btn" href="' + href + '" target="_blank" rel="noopener" aria-label="' + label + '">' + svg(icon) + '</a>'; }
-      host.innerHTML = '<span class="share-label">Share</span>'
+      var markup = '<span class="share-label">Share</span>'
         + link('https://www.linkedin.com/sharing/share-offsite/?url=' + u, 'Share on LinkedIn', SHARE_ICONS.linkedin)
         + link('https://www.facebook.com/sharer/sharer.php?u=' + u, 'Share on Facebook', SHARE_ICONS.facebook)
         + link('https://www.threads.net/intent/post?text=' + tu, 'Share on Threads', SHARE_ICONS.threads)
         + '<a class="share-btn" href="mailto:?subject=' + t + '&body=' + u + '" aria-label="Share by email">' + svg(SHARE_ICONS.email) + '</a>'
-        + '<button type="button" class="share-btn is-copy" aria-label="Copy link">' + svg(SHARE_ICONS.copy) + '</button>';
-      var copyBtn = host.querySelector('.is-copy');
-      if (copyBtn) copyBtn.addEventListener('click', function(){
-        function done(){ copyBtn.classList.add('copied'); copyBtn.setAttribute('aria-label', 'Link copied'); setTimeout(function(){ copyBtn.classList.remove('copied'); copyBtn.setAttribute('aria-label', 'Copy link'); }, 1800); }
-        if (navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(url).then(done, done); }
-        else { try { var ta = document.createElement('textarea'); ta.value = url; ta.style.position = 'fixed'; ta.style.opacity = '0'; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta); } catch(e){} done(); }
-      });
+        + '<button type="button" class="share-btn is-copy" aria-label="Copy link">' + svg(SHARE_ICONS.copy) + '</button>'
+        + '<span class="share-status" role="status" aria-live="polite"></span>';
+      function wire(hostEl){
+        hostEl.innerHTML = markup;
+        var copyBtn = hostEl.querySelector('.is-copy');
+        var statusEl = hostEl.querySelector('.share-status');
+        if (copyBtn) copyBtn.addEventListener('click', function(){
+          function done(){ copyBtn.classList.add('copied'); copyBtn.setAttribute('aria-label', 'Link copied'); if (statusEl) statusEl.textContent = 'Link copied'; setTimeout(function(){ copyBtn.classList.remove('copied'); copyBtn.setAttribute('aria-label', 'Copy link'); if (statusEl) statusEl.textContent = ''; }, 1800); }
+          if (navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(url).then(done, done); }
+          else { try { var ta = document.createElement('textarea'); ta.value = url; ta.style.position = 'fixed'; ta.style.opacity = '0'; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta); } catch(e){} done(); }
+        });
+      }
+      // top row: existing #article-share, or create just after the badges
+      var top = document.getElementById('article-share');
+      if (!top){
+        var bx = document.getElementById('article-badges');
+        if (bx && bx.parentNode){ top = document.createElement('div'); top.id = 'article-share'; top.className = 'article-share'; bx.parentNode.insertBefore(top, bx.nextSibling); }
+      }
+      if (top) wire(top);
+      // bottom row: #article-share-bottom, or create just before the keywords line (below the CTA)
+      var bottom = document.getElementById('article-share-bottom');
+      if (!bottom){
+        var kw = document.getElementById('article-keywords');
+        if (kw && kw.parentNode){ bottom = document.createElement('div'); bottom.id = 'article-share-bottom'; bottom.className = 'article-share article-share-bottom'; kw.parentNode.insertBefore(bottom, kw); }
+      }
+      if (bottom) wire(bottom);
     }
 
     fetch('articles.json?cb=' + Date.now())
