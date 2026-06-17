@@ -101,13 +101,15 @@ a { color: inherit; text-decoration: none; }
 
 /* Inline prose links: pale cyan, subtle underline, brightens on hover */
 .story-grid p a,
-.article-body p a {
+.article-body p a,
+.service-block p a {
   color: var(--cyan-pale);
   border-bottom: 1px solid color-mix(in srgb, var(--cyan-pale) 35%, transparent);
   transition: color .15s ease, border-color .15s ease;
 }
 .story-grid p a:hover,
-.article-body p a:hover {
+.article-body p a:hover,
+.service-block p a:hover {
   color: var(--cyan-bright);
   border-bottom-color: var(--cyan-pale);
 }
@@ -675,6 +677,19 @@ h1, h2, h3, h4 {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* Natural-ratio media slot: box follows the image, no fixed ratio, no dead space */
+.service-block-image--natural {
+  aspect-ratio: auto;
+  background: none;
+  border: none;
+  display: block;
+}
+
+.service-block-image--natural img {
+  height: auto;
+  object-fit: contain;
 }
 
 .service-block-image span {
