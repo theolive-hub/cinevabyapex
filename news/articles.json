@@ -121,6 +121,53 @@
         "camera distance"
       ],
       "visible": true
+    },
+    {
+      "slug": "roe-black-pearl-bp2",
+      "title": "The Mandalorian panel",
+      "dek": "The LED wall behind The Mandalorian was ROE Black Pearl. Cineva stocks one of the largest Black Pearl BP2 V2 inventories in North America. What 2.84mm pitch and 16-bit colour buy your shot.",
+      "date": "2026-06-16",
+      "author": "Cineva",
+      "tag": "Our gear",
+      "image": "assets/roe-black-pearl-bp2-fig1.webp",
+      "services": [
+        "led"
+      ],
+      "keywords": [
+        "ROE Black Pearl BP2",
+        "LED volume",
+        "virtual production",
+        "2.84mm pixel pitch",
+        "16-bit colour",
+        "ILM StageCraft",
+        "Brompton",
+        "Toronto"
+      ],
+      "popular": 3,
+      "visible": true
+    },
+    {
+      "slug": "vendor-in-at-greenlight",
+      "title": "Call us at greenlight",
+      "dek": "The same volume build goes very differently depending on when you call. What early runway buys, and what cannot be fixed on the shoot day.",
+      "date": "2026-06-16",
+      "author": "Cineva",
+      "tag": "On set",
+      "image": "assets/vendor-in-at-greenlight-fig1.webp",
+      "services": [
+        "turnkey"
+      ],
+      "keywords": [
+        "virtual production prep",
+        "pre-light",
+        "load-in",
+        "greenlight",
+        "scheduling",
+        "turnkey",
+        "LED volume",
+        "Toronto"
+      ],
+      "visible": true
     }
   ]
 }
