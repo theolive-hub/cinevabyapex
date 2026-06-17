@@ -1,6 +1,6 @@
 {
   "$comment": "Single source of truth for the Cineva news section. The news-admin.html page reads and writes this file via the GitHub API. 'visible: false' unlists an article: it drops off the index, out of news-sitemap.xml, and gets noindex on its own page — but the URL still returns 200 (not a dead 404).",
-  "updated": "2026-06-15",
+  "updated": "2026-06-16",
   "articles": [
     {
       "slug": "led-volume-prep-checklist",
@@ -50,6 +50,30 @@
       ],
       "visible": true,
       "popular": 2
+    },
+    {
+      "slug": "green-screen-or-led-volume",
+      "title": "Green or volume?",
+      "dek": "A straight answer to the most common virtual-production question, by shot type. When the LED volume wins, when green screen is still the right call, and the hybrid case.",
+      "date": "2026-06-16",
+      "author": "Cineva",
+      "tag": "Field notes",
+      "image": "assets/green-screen-or-led-volume-fig1.webp",
+      "services": [
+        "led",
+        "remap"
+      ],
+      "keywords": [
+        "green screen",
+        "LED volume",
+        "virtual production",
+        "in-camera VFX",
+        "shot type",
+        "reflections",
+        "post load",
+        "Toronto"
+      ],
+      "visible": true
     }
   ]
 }
