@@ -30,6 +30,7 @@
   --cyan-deep:  #267E99;
   --cyan-soft:  #0D2A33;
   --cyan-bright:#5FC6E2;
+  --cyan-pale:  #92D7EA;
   --stage:      #C9337A;
   --stage-deep: #962257;
 
@@ -97,6 +98,19 @@ body {
 
 img, svg { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
+
+/* Inline prose links: pale cyan, subtle underline, brightens on hover */
+.story-grid p a,
+.article-body p a {
+  color: var(--cyan-pale);
+  border-bottom: 1px solid color-mix(in srgb, var(--cyan-pale) 35%, transparent);
+  transition: color .15s ease, border-color .15s ease;
+}
+.story-grid p a:hover,
+.article-body p a:hover {
+  color: var(--cyan-bright);
+  border-bottom-color: var(--cyan-pale);
+}
 ul, ol { list-style: none; }
 ::selection { background: var(--cyan); color: var(--white); }
 

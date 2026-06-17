@@ -141,7 +141,7 @@
   </section>
 
   <!-- DETAIL -->
-  <section class="section">
+  <section class="section" style="padding-block: calc(var(--s-24) * 0.3);">
     <div class="container">
       <div class="story-grid">
         <div>
@@ -159,6 +159,32 @@
             <span class="spec-item">Proven in prep before shoot day</span>
             <span class="spec-item">Real-time parallax correction</span>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECOND CAMERA -->
+  <section class="section reveal" style="padding-block: calc(var(--s-24) * 0.3);">
+    <div class="container">
+      <h2 class="display-section" style="font-size: var(--t-md); margin-bottom: var(--s-6);">Why a second camera breaks the wall<span class="pt">.</span></h2>
+      <div class="story-grid" style="grid-template-columns: 1fr;">
+        <div>
+          <p>An <a href="led-volumes.html">LED wall</a> only renders correct perspective for one tracked camera at a time. Point a second camera at the same wall and it sees the first camera's parallax, so the environment skews and the background reads painted on. On a coverage day, that is the difference between a usable take and a reshoot.</p>
+          <p>Frame remapping, a <a href="https://www.bromptontech.com" target="_blank" rel="noopener">Brompton</a> capability we run on every multi-camera build, sends each genlocked camera its own correctly rendered view of the same wall. Each angle gets the background it needs, so you can shoot a master and a tight at once without the wall fighting one of them. The <a href="server-playback.html">content and the feeds</a> are prepped and the camera relationships are checked in <a href="news/led-volume-prep-checklist.html">prep</a>, not discovered on the floor.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KEY AND BACKGROUND -->
+  <section class="section reveal" style="padding-block: calc(var(--s-24) * 0.3);">
+    <div class="container">
+      <h2 class="display-section" style="font-size: var(--t-md); margin-bottom: var(--s-6);">Background and a clean key, one take<span class="pt">.</span></h2>
+      <div class="story-grid" style="grid-template-columns: 1fr;">
+        <div>
+          <p>Remapping also lets us interleave solid colour frames between content frames, so one camera captures the in-camera background while another pulls a clean matte off the same wall in the same take. You get the finished look on the day and the clean element post wants, without choosing between a volume and a key. It is the practical bridge between in-camera VFX and a <a href="news/green-screen-or-led-volume.html">green-screen workflow</a>.</p>
+          <p>The same per-camera correction carries to any multi-camera <a href="driving-plates.html">driving-plate</a> day. When frame remapping is right it disappears; when it is wrong, everyone sees it. Our job is to prove it in prep so it disappears. Tell us the cameras and the stage, and we will build it.</p>
         </div>
       </div>
     </div>
