@@ -74,6 +74,30 @@
         "Toronto"
       ],
       "visible": true
+    },
+    {
+      "slug": "ontario-tax-credits-led-volume",
+      "title": "What the credits cover",
+      "dek": "A plain guide to OPSTC, OFTTC, and OCASE, the current rates, and how a volume build factors into qualifying Ontario spend.",
+      "date": "2026-06-16",
+      "author": "Cineva",
+      "tag": "Budget",
+      "image": "assets/ontario-tax-credits-led-volume-fig1.webp",
+      "services": [
+        "turnkey",
+        "led"
+      ],
+      "keywords": [
+        "Ontario film tax credit",
+        "OPSTC",
+        "OFTTC",
+        "OCASE",
+        "virtual production",
+        "LED volume budget",
+        "Ontario Creates",
+        "Toronto"
+      ],
+      "visible": true
     }
   ]
 }
