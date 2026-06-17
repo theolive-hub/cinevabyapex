@@ -30,12 +30,14 @@
   <meta property="og:site_name" content="Cineva by Apex Sound &amp; Light">
   <meta property="og:title" content="{{TITLE}} · Cineva">
   <meta property="og:description" content="{{DEK}}">
-  <meta property="og:image" content="https://cinevabyapex.com/assets/og-image.png">
+  <meta property="og:image" content="https://cinevabyapex.com/news/{{IMAGE1}}">
+  <meta property="og:image:width" content="{{W1}}">
+  <meta property="og:image:height" content="{{H1}}">
   <meta property="og:url" content="https://cinevabyapex.com/news/{{SLUG}}.html">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{{TITLE}} · Cineva">
   <meta name="twitter:description" content="{{DEK}}">
-  <meta name="twitter:image" content="https://cinevabyapex.com/assets/og-image.png">
+  <meta name="twitter:image" content="https://cinevabyapex.com/news/{{IMAGE1}}">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -123,6 +125,8 @@
           <p class="article-byline">By Cineva crew · {{DATE_HUMAN}}</p>
           <!-- Service badges auto-populate from this article's "services" array in articles.json. -->
           <div class="svc-tags" id="article-badges"></div>
+          <!-- Social share row auto-populates from news.js (LinkedIn, Facebook, Threads, email, copy link). -->
+          <div class="article-share" id="article-share"></div>
         </header>
         <div class="article-body">
           <!-- FIGURE 1 — float LEFT. Fresh per-article image (never reuse site assets). Also the mini-card image in articles.json. -->
