@@ -1061,6 +1061,11 @@ h1, h2, h3, h4 {
   max-height: 54px;
 }
 
+/* Food Network is a circular badge — give it height so the disc has presence */
+.trust-cell img[alt="Food Network"] {
+  max-height: 56px;
+}
+
 /* ============================================================
    17. CONTACT
    ============================================================ */
