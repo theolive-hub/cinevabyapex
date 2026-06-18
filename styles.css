@@ -809,6 +809,13 @@ h1, h2, h3, h4 {
   color: var(--iron);
 }
 
+/* Homepage trust strip: uniform-height logos, smaller than the work-page grid */
+.trusted-by img {
+  display: block;
+  height: 24px;
+  width: auto;
+}
+
 /* ============================================================
    14. CTA BAND
    ============================================================ */
