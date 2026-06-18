@@ -821,6 +821,11 @@ h1, h2, h3, h4 {
   height: 38px;
 }
 
+/* Amazon's wordmark rides high (swoosh hangs below) — nudge down to sit on the row */
+.trusted-by img[alt="Amazon Studios"] {
+  transform: translateY(3px);
+}
+
 /* ============================================================
    14. CTA BAND
    ============================================================ */
