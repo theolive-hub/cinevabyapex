@@ -812,8 +812,13 @@ h1, h2, h3, h4 {
 /* Homepage trust strip: uniform-height logos, smaller than the work-page grid */
 .trusted-by img {
   display: block;
-  height: 24px;
+  height: 28px;
   width: auto;
+}
+
+/* Fox Sports is a compact emblem — let it run larger so it doesn't read small */
+.trusted-by img[alt="Fox Sports"] {
+  height: 38px;
 }
 
 /* ============================================================
