@@ -1063,7 +1063,7 @@ h1, h2, h3, h4 {
 
 /* Food Network is a circular badge — give it height so the disc has presence */
 .trust-cell img[alt="Food Network"] {
-  max-height: 56px;
+  max-height: 67px;
 }
 
 /* ============================================================
