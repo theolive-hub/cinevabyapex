@@ -1050,6 +1050,18 @@ h1, h2, h3, h4 {
   object-fit: contain;
 }
 
+/* CBC and MLSE are full-colour on white cards — match their width so they don't clash */
+.trust-cell img[alt="CBC"],
+.trust-cell img[alt="MLSE"] {
+  max-width: 90%;
+  max-height: 100px;
+}
+
+/* Fox Sports is a compact emblem — give it more height so it doesn't read small */
+.trust-cell img[alt="Fox Sports"] {
+  max-height: 54px;
+}
+
 /* ============================================================
    17. CONTACT
    ============================================================ */
