@@ -820,13 +820,13 @@ h1, h2, h3, h4 {
 /* Homepage trust strip: uniform-height logos, smaller than the work-page grid */
 .trusted-by img {
   display: block;
-  height: 28px;
+  height: 29.4px;
   width: auto;
 }
 
 /* Fox Sports is a compact emblem — let it run larger so it doesn't read small */
 .trusted-by img[alt="Fox Sports"] {
-  height: 38px;
+  height: 39.9px;
 }
 
 /* Amazon's wordmark rides high (swoosh hangs below the text) — drop it so the
