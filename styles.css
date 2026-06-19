@@ -792,6 +792,13 @@ h1, h2, h3, h4 {
 /* ============================================================
    13. TRUSTED BY
    ============================================================ */
+/* Lighter full-width band behind the homepage logos, so the strip stands out */
+.trust-band {
+  background: var(--carbon);
+  border-top: 1px solid var(--line-2);
+  border-bottom: 1px solid var(--line-2);
+}
+
 .trusted-by {
   display: flex;
   justify-content: center;
