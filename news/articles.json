@@ -3,6 +3,76 @@
   "updated": "2026-06-16",
   "articles": [
     {
+      "slug": "led-volume-on-location",
+      "title": "The wall comes to you",
+      "dek": "Cineva is not a rental facility. We bring the LED volume, playback, and crew to your set, sized to the shot and struck when you wrap.",
+      "date": "2026-06-18",
+      "author": "Cineva",
+      "tag": "Field notes",
+      "image": "assets/led-volume-on-location-fig1.webp",
+      "services": [
+        "led",
+        "turnkey"
+      ],
+      "keywords": [
+        "mobile LED volume",
+        "LED wall on location",
+        "LED volume rental",
+        "set-facing AV",
+        "virtual production",
+        "Toronto",
+        "bring the wall"
+      ],
+      "visible": true
+    },
+    {
+      "slug": "what-you-need-to-book-an-led-wall",
+      "title": "What we need to quote",
+      "dek": "A production coordinator's checklist for booking an LED wall: the shot, the stage, the dates, and the plate. Enough to get a real quote off one call.",
+      "date": "2026-06-18",
+      "author": "Cineva",
+      "tag": "On set",
+      "image": "assets/what-you-need-to-book-an-led-wall-fig1.webp",
+      "services": [
+        "led",
+        "turnkey"
+      ],
+      "keywords": [
+        "book an LED wall",
+        "production coordinator",
+        "LED volume rental",
+        "virtual production prep",
+        "quote",
+        "pre-light",
+        "Toronto"
+      ],
+      "visible": true
+    },
+    {
+      "slug": "how-to-shoot-a-car-scene",
+      "title": "The car scene, three ways",
+      "dek": "Process trailer, green screen, or an LED volume with a driving plate: how the three ways to shoot a car scene compare on cost, control, and hours on set, and when each one wins.",
+      "date": "2026-06-18",
+      "author": "Cineva",
+      "tag": "Field notes",
+      "image": "assets/how-to-shoot-a-car-scene-fig1.webp",
+      "services": [
+        "plates",
+        "led"
+      ],
+      "keywords": [
+        "car scene",
+        "driving plates",
+        "process trailer",
+        "green screen",
+        "LED volume",
+        "car on stage",
+        "Toronto",
+        "virtual production"
+      ],
+      "visible": true
+    },
+    {
       "slug": "led-volume-prep-checklist",
       "title": "Before the wall ships",
       "dek": "The pre-flight pass every volume order goes through in the Pickering warehouse, and why it saves you time on the floor.",
