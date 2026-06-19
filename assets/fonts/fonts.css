@@ -1,0 +1,16 @@
+/* Self-hosted webfonts (replaces the Google Fonts request).
+   Download the woff2 files from https://gwfh.mranftl.com/fonts and place them
+   in this folder (assets/fonts/) with the exact names below.
+   Archivo: weights 400,500,600,700,800,900 · JetBrains Mono: 400,500,700 · charset: latin.
+   font-display: swap keeps text visible during load (no FOIT). */
+
+@font-face { font-family: 'Archivo'; font-style: normal; font-weight: 400; font-display: swap; src: url('Archivo-Regular.woff2') format('woff2'); }
+@font-face { font-family: 'Archivo'; font-style: normal; font-weight: 500; font-display: swap; src: url('Archivo-Medium.woff2') format('woff2'); }
+@font-face { font-family: 'Archivo'; font-style: normal; font-weight: 600; font-display: swap; src: url('Archivo-SemiBold.woff2') format('woff2'); }
+@font-face { font-family: 'Archivo'; font-style: normal; font-weight: 700; font-display: swap; src: url('Archivo-Bold.woff2') format('woff2'); }
+@font-face { font-family: 'Archivo'; font-style: normal; font-weight: 800; font-display: swap; src: url('Archivo-ExtraBold.woff2') format('woff2'); }
+@font-face { font-family: 'Archivo'; font-style: normal; font-weight: 900; font-display: swap; src: url('Archivo-Black.woff2') format('woff2'); }
+
+@font-face { font-family: 'JetBrains Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url('JetBrainsMono-Regular.woff2') format('woff2'); }
+@font-face { font-family: 'JetBrains Mono'; font-style: normal; font-weight: 500; font-display: swap; src: url('JetBrainsMono-Medium.woff2') format('woff2'); }
+@font-face { font-family: 'JetBrains Mono'; font-style: normal; font-weight: 700; font-display: swap; src: url('JetBrainsMono-Bold.woff2') format('woff2'); }
