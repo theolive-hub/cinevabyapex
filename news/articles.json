@@ -1,6 +1,6 @@
 {
   "$comment": "Single source of truth for the Cineva news section. The news-admin.html page reads and writes this file via the GitHub API. 'visible: false' unlists an article: it drops off the index, out of news-sitemap.xml, and gets noindex on its own page — but the URL still returns 200 (not a dead 404).",
-  "updated": "2026-06-16",
+  "updated": "2026-06-19",
   "articles": [
     {
       "slug": "how-the-mandalorian-led-volume-works",
@@ -23,6 +23,29 @@
         "in-camera VFX",
         "frame remapping",
         "Toronto"
+      ],
+      "visible": true
+    },
+    {
+      "slug": "why-your-led-wall-fights-the-dit",
+      "title": "Colour the DIT trusts",
+      "dek": "The LED wall should hand the DIT a clean, calibrated signal, not a fight. How the volume and the processing keep colour honest from wall to cart.",
+      "date": "2026-06-16",
+      "author": "Cineva",
+      "tag": "On set",
+      "image": "assets/why-your-led-wall-fights-the-dit-fig1.webp",
+      "services": [
+        "led"
+      ],
+      "keywords": [
+        "DIT",
+        "colour pipeline",
+        "Rec.709",
+        "ACES",
+        "genlock",
+        "timecode",
+        "Brompton",
+        "LED volume"
       ],
       "visible": true
     },
