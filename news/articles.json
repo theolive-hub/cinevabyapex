@@ -3,6 +3,29 @@
   "updated": "2026-06-19",
   "articles": [
     {
+      "slug": "the-moving-light-inventory",
+      "title": "The moving-light inventory",
+      "dek": "The moving lights we run for film, TV, and broadcast, sorted by the job each one does on the day. Touring-grade output, broadcast discipline.",
+      "date": "2026-06-19",
+      "author": "Cineva",
+      "tag": "Specialty Lighting",
+      "image": "assets/the-moving-light-inventory-fig1.webp",
+      "services": [
+        "light"
+      ],
+      "keywords": [
+        "moving lights",
+        "moving light rental",
+        "spot wash beam",
+        "film lighting package",
+        "broadcast lighting",
+        "gaffer",
+        "Toronto",
+        "Robe"
+      ],
+      "visible": true
+    },
+    {
       "slug": "how-the-mandalorian-led-volume-works",
       "title": "The Mandalorian wall",
       "dek": "A plain tour of the in-camera trick behind The Mandalorian: the ROE Black Pearl wall, Brompton processing, the content, the camera sync, and why the crew matters more than the kit.",
