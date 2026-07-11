@@ -15,7 +15,7 @@
   'use strict';
 
   /* ▼▼▼  THE SWITCH  ▼▼▼ */
-  var COMING_SOON = false;
+  var COMING_SOON = true;
   /* ▲▲▲  set to false to go live  ▲▲▲ */
 
   if (!COMING_SOON) return;
