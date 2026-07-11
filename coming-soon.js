@@ -15,7 +15,7 @@
   'use strict';
 
   /* ▼▼▼  THE SWITCH  ▼▼▼ */
-  var COMING_SOON = true;
+  var COMING_SOON = false;
   /* ▲▲▲  set to false to go live  ▲▲▲ */
 
   if (!COMING_SOON) return;
@@ -84,11 +84,9 @@
     '<div class="cs-inner">' +
       '<img class="cs-logo" src="/assets/cineva-lockup.svg" ' +
         'alt="Cineva by Apex Sound & Light" width="1065" height="286">' +
-      '<p class="cs-eyebrow">Coming soon</p>' +
       '<h1 class="cs-tag">On set. On time. On Budget.</h1>' +
-      '<p class="cs-copy">The Cineva by Apex Sound &amp; Light site is getting its ' +
-        'final pass. Need a volume, driving plates, or specialty lighting for a shoot? ' +
-        'Reach us direct.</p>' +
+      '<p class="cs-copy">Cineva by Apex Sound &amp; Light site is coming soon. ' +
+        'Need a volume, driving plates, or specialty lighting for a shoot? Contact us at:</p>' +
       '<p class="cs-contact">' +
         '<a href="mailto:hello@cinevabyapex.com">hello@cinevabyapex.com</a>' +
         '<span class="cs-dot">&middot;</span>' +
